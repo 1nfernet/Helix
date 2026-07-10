@@ -1,0 +1,41 @@
+# Helix spec — knock out TP53 in HEK293T.
+#
+# The `sequence` below is a SYNTHETIC illustrative edit window (not real TP53
+# coordinates). In the MVP the target sequence is provided inline so the run is
+# fully deterministic and offline; a coordinate-based provider (Ensembl) will
+# resolve `gene` + `region` into this field in Phase 3.
+
+name: TP53_KO_HEK293
+organism: human
+genome_build: GRCh38
+cell_line: HEK293T
+
+target:
+  gene: TP53
+  goal: knockout
+  region: exon 2-4
+  sequence: >
+    ATGGCCGATTACGGCTAACCGGATCGATCGGTTACCGGATCCTAGGCTAGCTAGGCTAAC
+    GGTTAACCGGTACGATCGATCGGCTAGCTAGCTAGGCCTTAAGGCTAGCGATCGATCGGA
+    TCCGGTTAACCGGCTAGCTAGCTAGGCTAGCATCGATCGGCTAGCTAGGCTAACCGGTTA
+    ACGGATCGATCGATCGGCTAGCTAGCTAGGCCTAGCTAGCTAGGCTAACCGGTTAACCGG
+
+strategy:
+  modality: crispr_ko
+  enzyme: auto            # let the strategy resolver choose (-> SpCas9)
+
+constraints:
+  on_target_min_efficiency: 0.5
+  off_target_max_cfd: 0.2
+  guides_count: 3
+  max_homopolymer: 4
+  avoid_restriction_sites: [BsaI]
+
+simulate:
+  on_target: heuristic_gc
+  off_target: mock_seed
+  repair_outcome: mock_indel
+  sequence_provider: inline
+
+deliver: rnp
+validate: amplicon_seq

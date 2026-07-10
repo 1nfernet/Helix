@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "helix-dsl"
+version = "0.1.0"
+description = "Helix — a declarative DSL and compiler for reproducible gene-editing design."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Helix contributors" }]
+keywords = [
+    "crispr", "gene-editing", "genome-editing", "bioinformatics", "dsl", "compiler",
+    "guide-rna", "base-editing", "prime-editing", "computational-biology", "mcp",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Software Development :: Compilers",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/helix-dsl/helix"
+Repository = "https://github.com/helix-dsl/helix"
+Issues = "https://github.com/helix-dsl/helix/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "build>=1.0", "twine>=5.0"]
+llm = ["anthropic>=0.40"]  # Phase-2 agents (helix author, --strategy llm)
+web = ["fastapi>=0.110", "uvicorn>=0.29"]  # HTTP backend (helix serve)
+all = ["anthropic>=0.40", "fastapi>=0.110", "uvicorn>=0.29"]
+
+[project.scripts]
+helix = "helix.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["helix*"]
+
+[tool.setuptools.package-data]
+# Ship the grammar reference so `helix mcp` / helix_reference works when pip-installed.
+helix = ["frontend/helix_lang/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
