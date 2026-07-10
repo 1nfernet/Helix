@@ -43,7 +43,7 @@ python3 -m helix.cli compile examples/tp53_crispri.hx      # CRISPRi (dCas9-KRAB
 python3 -m helix.cli compile examples/tp53_ko_spry.hx      # relaxed-PAM KO (SpRY, near-PAMless)
 python3 -m helix.cli compile examples/tp53_ko_ensembl.hx   # resolves TP53 from Ensembl (network)
 python3 -m helix.cli validate examples/tp53_ko.hx          # parse + safety screen only
-python3 -m pytest -q                                        # 92 tests offline (+1 gated network test)
+python3 -m pytest -q                                        # 230 tests offline (+1 gated network test)
 
 # Phase-2 agents (need `pip install anthropic` + ANTHROPIC_API_KEY):
 python3 -m helix.cli author "knock out TP53 in HEK293T, 3 guides, avoid BsaI" -o my.hx
@@ -254,8 +254,13 @@ the panel degrades to a hint and everything else stays fully offline. (`HELIX_FA
 runs a canned offline stub to preview the flow without a key.)
 
 ```bash
-pip install -e '.[web]' && helix serve      # API on :8000 (+ /docs)
-cd frontend && npm install && npm run dev    # UI on :5173 (proxies /api)
+# One-command product: build the UI once, then serve UI + API on one origin.
+cd frontend && npm install && npm run build && cd ..
+pip install -e '.[web]' && helix serve       # full app on http://localhost:8000
+
+# Or hot-reload dev (two processes):
+helix serve                                   # API on :8000 (+ /docs)
+cd frontend && npm run dev                     # UI on :5173 (proxies /api)
 ```
 
 Backend: `helix/server/app.py` (`/api/compile`, `/api/compile-batch`,

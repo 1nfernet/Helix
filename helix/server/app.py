@@ -559,3 +559,13 @@ def compile_library_endpoint(req: LibraryRequest) -> dict:
             for o in outcomes
         ]
     }
+
+
+# Serve the built web UI from the same server when it exists, so `helix serve` runs
+# the whole product on one origin. Mounted LAST so /api/* routes always win; a no-op
+# when the frontend hasn't been built (the API still serves fine on its own).
+_FRONTEND_DIST = Path(__file__).resolve().parents[2] / "frontend" / "dist"
+if _FRONTEND_DIST.is_dir():
+    from fastapi.staticfiles import StaticFiles
+
+    app.mount("/", StaticFiles(directory=str(_FRONTEND_DIST), html=True), name="webapp")

@@ -21,6 +21,18 @@ def test_health():
     assert "ai_configured" in body  # UI gates the AI features on this
 
 
+def test_api_routes_win_over_static_mount():
+    # The built web UI is served from "/", but /api/* routes must still resolve
+    # (the static mount is registered last so it never shadows the API).
+    assert client.get("/api/health").status_code == 200
+    from helix.server.app import _FRONTEND_DIST
+
+    root = client.get("/")
+    if _FRONTEND_DIST.is_dir():
+        assert root.status_code == 200 and "text/html" in root.headers.get("content-type", "")
+    # else: no build present — the API-only server is a valid deployment too.
+
+
 # --- LLM agent endpoints (fake client injected; no key/network) ---------
 
 import importlib  # noqa: E402

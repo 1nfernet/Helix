@@ -25,6 +25,7 @@ import type { PickMods } from "./components/DnaHelix";
 import { AiPanel } from "./components/AiPanel";
 import { GeneLookup } from "./components/GeneLookup";
 import { ComparePanel } from "./components/ComparePanel";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import { ModelsPanel } from "./components/ModelsPanel";
 import { HistoryList } from "./components/HistoryList";
 import { BatchEditor } from "./components/BatchEditor";
@@ -457,6 +458,7 @@ export default function App() {
           <p>{HEAD[mode].sub}</p>
         </div>
 
+        <ErrorBoundary key={mode}>
         {mode === "models" && (
           <ModelsPanel
             provenance={result?.design.provenance.adapters}
@@ -567,6 +569,7 @@ export default function App() {
             />
           </div>
         )}
+        </ErrorBoundary>
       </main>
     </div>
   );
