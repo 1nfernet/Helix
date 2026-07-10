@@ -2,24 +2,31 @@
 
 **A declarative DSL and compiler for reproducible gene-editing design.**
 
+[![PyPI](https://img.shields.io/pypi/v/helix-dsl?color=5b53e0&label=pypi)](https://pypi.org/project/helix-dsl/)
+[![License](https://img.shields.io/github/license/coindef/Helix?color=5b53e0)](LICENSE)
+![Python](https://img.shields.io/badge/python-3.9%2B-5b53e0)
+![Tests](https://img.shields.io/badge/tests-231%20passing-0f9271)
+![MCP](https://img.shields.io/badge/MCP-server-5b53e0)
+
 Most agentic gene-editing tools are chat interfaces that produce a one-off
 answer. Helix treats an editing experiment as **source code**: you write a small,
 declarative spec (the *intent*), and a deterministic **compiler** — assisted by
 narrowly-scoped LLM agents — turns it into a fully resolved, provenance-stamped
 **design** you can diff, version, review, and re-run.
 
-```
-   intent (DSL / YAML)                deterministic compiler                design (bundle)
-   ┌────────────────┐   agents fill   ┌───────────────────────────┐        ┌──────────────┐
-   │ what to edit    │  the blanks →   │ safety → strategy → target │  →     │ ranked guides │
-   │ under what      │                 │ → guides → simulate →      │        │ + reports     │
-   │ constraints     │                 │ constraints → primers      │        │ + provenance  │
-   └────────────────┘                 └───────────────────────────┘        └──────────────┘
-```
+<p align="center">
+  <img src="docs/pipeline.svg" width="860"
+       alt="Helix architecture: intent (DSL/YAML) → deterministic compiler (safety, strategy, target, guides, simulate, constraints, primers) → design bundle, fed by injectable backends and driven via CLI, Web UI, or MCP.">
+</p>
 
 The key rule: **agents may only emit or edit a spec; only the deterministic
 compiler produces the design.** That keeps the trust boundary auditable and every
 run reproducible.
+
+<p align="center">
+  <img src="docs/workflow.svg" width="860"
+       alt="Trust boundary: a scientist or an AI agent writes/edits a reviewable Helix spec; only the tested, deterministic compiler produces the verified, provenance-stamped design.">
+</p>
 
 ## Why a DSL (vs. a chat agent or plain JSON)
 
