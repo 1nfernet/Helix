@@ -12,8 +12,9 @@ venv/
 frontend/node_modules/
 frontend/dist/
 
-# editor / OS
+# editor / OS / local tooling
 .DS_Store
 .idea/
 .vscode/
+.claude/
 *.log

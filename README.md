@@ -23,8 +23,8 @@ LLM agents — turns it into a fully resolved, provenance-stamped **design** you
 diff, version, review, and re-run.
 
 <p align="center">
-  <img src="docs/architecture.svg" width="820"
-       alt="Helix architecture — three layers: Helix Studio (author &amp; review) feeds the deterministic compiler (compile pipeline, agents &amp; builders, design store), which draws on a Simulate &amp; score layer of injectable backends (sequence, on/off-target, edit outcome, variants, folding)." />
+  <img src="docs/hero.png" width="900"
+       alt="Helix web UI — a syntax-highlighted spec editor on the left; on the right the compiled design with ranked guides and protein-consequence badges (premature-STOP, missense, silent)." />
 </p>
 
 > **The key rule:** agents may only *emit or edit a spec*; only the deterministic
@@ -91,7 +91,12 @@ Full grammar → [`GRAMMAR.md`](helix/frontend/helix_lang/GRAMMAR.md).
 
 ## Architecture
 
-Three layers (see the diagram above):
+<p align="center">
+  <img src="docs/architecture.svg" width="820"
+       alt="Helix architecture — three layers: Helix Studio (author &amp; review) feeds the deterministic compiler (compile pipeline, agents &amp; builders, design store), which draws on a Simulate &amp; score layer of injectable backends (sequence, on/off-target, edit outcome, variants, folding)." />
+</p>
+
+Three layers:
 
 1. **Helix Studio** — author and review a spec via the **CLI**, **Web UI**, or **MCP** (agents). The spec is the reviewable artifact.
 2. **Deterministic compiler** — a fixed pipeline (safety → strategy → target → guides → simulate → constraints → primers) plus narrowly-scoped LLM agents/builders and a provenance-stamped design store. *Agents only touch the spec; the compiler owns the design.*

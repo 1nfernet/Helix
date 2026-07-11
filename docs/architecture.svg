@@ -15,12 +15,16 @@
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.2" fill="none" stroke="#5b53e0" stroke-width="2.1"/><line x1="14.6" y1="14.6" x2="20.5" y2="20.5" stroke="#5b53e0" stroke-width="2.1" stroke-linecap="round"/></symbol>
     <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.5l8.5 4.8v9.4L12 21.5 3.5 16.7V7.3z" fill="#e0f2ec" stroke="#0f9271" stroke-width="1.6"/><path d="M12 12v9.5M3.5 7.3L12 12l8.5-4.7" fill="none" stroke="#0f9271" stroke-width="1.3"/></symbol>
     <symbol id="i-plan" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="#ecebfb" stroke="#5b53e0" stroke-width="1.6"/><path d="M8 12l2.6 2.6L16.5 8.5" fill="none" stroke="#5b53e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <linearGradient id="gb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f3fe"/><stop offset="1" stop-color="#e7e8fc"/></linearGradient>
+    <linearGradient id="gb2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf4e3"/><stop offset="1" stop-color="#f4ebd0"/></linearGradient>
+    <linearGradient id="gb3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eaf7f2"/><stop offset="1" stop-color="#dbefe7"/></linearGradient>
+    <filter id="soft" x="-8%" y="-8%" width="116%" height="120%"><feDropShadow dx="0" dy="2.5" stdDeviation="5.5" flood-color="#1b2b52" flood-opacity="0.10"/></filter>
   </defs>
 
   <rect x="0" y="0" width="1000" height="1366" fill="#ffffff"/>
 
   <!-- ============ BAND 1: AUTHOR ============ -->
-  <rect x="16" y="16" width="968" height="312" rx="22" fill="#eeeffe" stroke="#cdccf3" stroke-width="1.5"/>
+  <rect x="16" y="16" width="968" height="312" rx="22" fill="url(#gb1)" stroke="#cdccf3" stroke-width="1.5"/>
   <text x="500" y="58" text-anchor="middle" font-size="22" font-weight="700" fill="#3f3ab0">Helix Studio — author &amp; review</text>
 
   <use href="#i-user" x="44" y="92" width="42" height="42"/>
@@ -41,7 +45,7 @@
   <line x1="548" y1="158" x2="586" y2="158" stroke="#9aa0ac" stroke-width="1.6" marker-end="url(#ah)"/>
 
   <!-- editor card -->
-  <rect x="642" y="84" width="326" height="196" rx="16" fill="#ffffff" stroke="#cdccf3"/>
+  <rect x="642" y="84" width="326" height="196" rx="16" fill="#ffffff" stroke="#cdccf3" filter="url(#soft)"/>
   <text x="668" y="116" font-size="14.5" font-weight="700" fill="#12151f">Spec editor</text>
   <g font-size="12.5" fill="#525863">
     <circle cx="672" cy="140" r="3" fill="#5b53e0"/><text x="684" y="145">target</text>
@@ -58,11 +62,11 @@
   <line x1="805" y1="328" x2="805" y2="356" stroke="#b7bcc7" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#ah)"/>
 
   <!-- ============ BAND 2: COMPILE ============ -->
-  <rect x="16" y="356" width="968" height="470" rx="22" fill="#f8f0da" stroke="#e7d5a5" stroke-width="1.5"/>
+  <rect x="16" y="356" width="968" height="470" rx="22" fill="url(#gb2)" stroke="#e7d5a5" stroke-width="1.5"/>
   <text x="500" y="398" text-anchor="middle" font-size="22" font-weight="700" fill="#8a6a12">Deterministic compiler</text>
 
   <!-- col 1: pipeline -->
-  <rect x="40" y="420" width="266" height="386" rx="16" fill="#ffffff" stroke="#e7d5a5" stroke-dasharray="4 4"/>
+  <rect x="40" y="420" width="266" height="386" rx="16" fill="#ffffff" stroke="#e7d5a5" stroke-dasharray="4 4" filter="url(#soft)"/>
   <use href="#i-plan" x="60" y="438" width="24" height="24"/>
   <text x="92" y="456" font-size="14.5" font-weight="700" fill="#12151f">Compile pipeline</text>
   <text x="60" y="476" font-size="11" fill="#a98b3a">solves constraints · reports infeasible</text>
@@ -77,7 +81,7 @@
   </g>
 
   <!-- col 2: agents & builders -->
-  <rect x="330" y="420" width="340" height="386" rx="16" fill="#ffffff" stroke="#e7d5a5" stroke-dasharray="4 4"/>
+  <rect x="330" y="420" width="340" height="386" rx="16" fill="#ffffff" stroke="#e7d5a5" stroke-dasharray="4 4" filter="url(#soft)"/>
   <text x="500" y="456" text-anchor="middle" font-size="14.5" font-weight="700" fill="#12151f">Agents &amp; builders</text>
   <rect x="352" y="472" width="296" height="72" rx="12" fill="#faf7ef" stroke="#eadfc2"/>
   <use href="#i-db" x="366" y="490" width="34" height="34"/>
@@ -102,7 +106,7 @@
   <text x="500" y="742" text-anchor="middle" font-size="11.5" fill="#a98b3a">agents may only emit / edit a spec — never the design</text>
 
   <!-- col 3: design store -->
-  <rect x="694" y="420" width="290" height="386" rx="16" fill="#ffffff" stroke="#e7d5a5" stroke-dasharray="4 4"/>
+  <rect x="694" y="420" width="290" height="386" rx="16" fill="#ffffff" stroke="#e7d5a5" stroke-dasharray="4 4" filter="url(#soft)"/>
   <text x="839" y="456" text-anchor="middle" font-size="14.5" font-weight="700" fill="#12151f">Design store</text>
   <use href="#i-code" x="718" y="478" width="120" height="94"/>
   <use href="#i-code" x="852" y="478" width="120" height="94"/>
@@ -120,12 +124,12 @@
   <line x1="640" y1="826" x2="640" y2="856" stroke="#b7bcc7" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#ah)"/>
 
   <!-- ============ BAND 3: SIMULATE & SCORE ============ -->
-  <rect x="16" y="856" width="968" height="494" rx="22" fill="#e2f4ee" stroke="#bfe3d6" stroke-width="1.5"/>
+  <rect x="16" y="856" width="968" height="494" rx="22" fill="url(#gb3)" stroke="#bfe3d6" stroke-width="1.5"/>
   <text x="500" y="898" text-anchor="middle" font-size="22" font-weight="700" fill="#0b6b53">Simulate &amp; score — injectable backends</text>
   <text x="500" y="922" text-anchor="middle" font-size="12.5" fill="#3f8f78">heuristic default offline&#160;&#160;⇄&#160;&#160;a real tool, switched by a spec edit (not code)</text>
 
   <!-- guide candidates -->
-  <rect x="44" y="960" width="176" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6"/>
+  <rect x="44" y="960" width="176" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6" filter="url(#soft)"/>
   <text x="132" y="990" text-anchor="middle" font-size="14" font-weight="700" fill="#12151f">Guide candidates</text>
   <use href="#i-dna" x="72" y="1010" width="34" height="34"/><text x="118" y="1032" font-size="12" fill="#525863">every PAM site</text>
   <use href="#i-dna" x="72" y="1058" width="34" height="34"/><text x="118" y="1080" font-size="12" fill="#525863">both strands</text>
@@ -137,7 +141,7 @@
   <line x1="224" y1="1125" x2="262" y2="1125" stroke="#3f8f78" stroke-width="1.8" marker-end="url(#ahg)"/>
 
   <!-- backends grid -->
-  <rect x="270" y="960" width="416" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6"/>
+  <rect x="270" y="960" width="416" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6" filter="url(#soft)"/>
   <text x="478" y="990" text-anchor="middle" font-size="14" font-weight="700" fill="#12151f">scored by pluggable backends</text>
   <g>
     <rect x="290" y="1006" width="188" height="80" rx="12" fill="#f0faf6" stroke="#cde9df"/>
@@ -155,7 +159,7 @@
   <line x1="690" y1="1125" x2="728" y2="1125" stroke="#3f8f78" stroke-width="1.8" marker-end="url(#ahg)"/>
 
   <!-- results -->
-  <rect x="736" y="960" width="228" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6"/>
+  <rect x="736" y="960" width="228" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6" filter="url(#soft)"/>
   <text x="850" y="990" text-anchor="middle" font-size="14" font-weight="700" fill="#0b6b53">Scored design</text>
   <use href="#i-chart" x="758" y="1012" width="30" height="30"/><text x="798" y="1032" font-size="12.5" fill="#2f5b4c">ranked guides</text>
   <use href="#i-target" x="758" y="1058" width="30" height="30"/><text x="798" y="1078" font-size="12.5" fill="#2f5b4c">off-target report</text>
