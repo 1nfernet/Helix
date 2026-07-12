@@ -1,168 +1,169 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1366" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1366" font-family="'Nunito', 'Varela Round', 'Segoe UI', Inter, system-ui, -apple-system, sans-serif">
   <defs>
-    <marker id="ah" markerWidth="10" markerHeight="10" refX="6.5" refY="3" orient="auto"><path d="M0,0 L6.5,3 L0,6 Z" fill="#9aa0ac"/></marker>
-    <marker id="ahg" markerWidth="10" markerHeight="10" refX="6.5" refY="3" orient="auto"><path d="M0,0 L6.5,3 L0,6 Z" fill="#3f8f78"/></marker>
+    <marker id="ah" markerWidth="12" markerHeight="12" refX="6.5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#322e4a"/></marker>
 
-    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4.3" fill="#5b53e0"/><path d="M3.5 21c0-4.7 3.8-7.5 8.5-7.5s8.5 2.8 8.5 7.5z" fill="#5b53e0"/></symbol>
-    <symbol id="i-robot" viewBox="0 0 24 24"><line x1="12" y1="1.5" x2="12" y2="4.5" stroke="#5b53e0" stroke-width="2"/><circle cx="12" cy="2" r="1.5" fill="#5b53e0"/><rect x="3.5" y="4.5" width="17" height="14" rx="4" fill="#5b53e0"/><circle cx="8.8" cy="11" r="1.7" fill="#fff"/><circle cx="15.2" cy="11" r="1.7" fill="#fff"/><rect x="8.5" y="14.5" width="7" height="1.8" rx="0.9" fill="#c9c5f4"/></symbol>
-    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h8l5 5v15H6z" fill="#fff" stroke="#5b53e0" stroke-width="1.6"/><path d="M14 2v5h5" fill="none" stroke="#5b53e0" stroke-width="1.6"/><line x1="9" y1="12" x2="16" y2="12" stroke="#b6b2ec" stroke-width="1.6"/><line x1="9" y1="15.5" x2="16" y2="15.5" stroke="#b6b2ec" stroke-width="1.6"/><line x1="9" y1="19" x2="13" y2="19" stroke="#b6b2ec" stroke-width="1.6"/></symbol>
-    <symbol id="i-db" viewBox="0 0 24 24"><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6" fill="#12b58a"/><ellipse cx="12" cy="6" rx="8" ry="3" fill="#0f9271"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" fill="none" stroke="#0b6b53" stroke-width="1.3"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="#0f9271"/><path d="M7.7 12.4l2.7 2.7 5.6-6" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-chart" viewBox="0 0 24 24"><rect x="3" y="13" width="4.6" height="8" rx="1.2" fill="#5b53e0"/><rect x="9.7" y="8" width="4.6" height="13" rx="1.2" fill="#0f9271"/><rect x="16.4" y="4" width="4.6" height="17" rx="1.2" fill="#b07d16"/></symbol>
-    <symbol id="i-code" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="3" fill="#f5f4fc" stroke="#dcd9f4" stroke-width="1"/><path d="M2.5 7a3 3 0 0 1 3-3h13a3 3 0 0 1 3 3v1.4H2.5z" fill="#eae7f8"/><circle cx="5.9" cy="6.2" r="0.8" fill="#b7b1ea"/><circle cx="8.3" cy="6.2" r="0.8" fill="#b7b1ea"/><circle cx="10.7" cy="6.2" r="0.8" fill="#b7b1ea"/><line x1="5.5" y1="12" x2="11.5" y2="12" stroke="#8b83e6" stroke-width="1.5" stroke-linecap="round"/><line x1="5.5" y1="15" x2="16.5" y2="15" stroke="#3fbf98" stroke-width="1.5" stroke-linecap="round"/><line x1="5.5" y1="18" x2="12" y2="18" stroke="#e0b968" stroke-width="1.5" stroke-linecap="round"/></symbol>
-    <symbol id="i-dna" viewBox="0 0 24 24"><path d="M8 2.5c0 5.5 8 6.5 8 9.5s-8 4-8 9.5" fill="none" stroke="#5b53e0" stroke-width="2.1" stroke-linecap="round"/><path d="M16 2.5c0 5.5-8 6.5-8 9.5s8 4 8 9.5" fill="none" stroke="#0f9271" stroke-width="2.1" stroke-linecap="round"/><line x1="9.2" y1="6.5" x2="14.8" y2="6.5" stroke="#b6b2ec" stroke-width="1.4"/><line x1="9.2" y1="17.5" x2="14.8" y2="17.5" stroke="#b6b2ec" stroke-width="1.4"/></symbol>
-    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2" fill="none" stroke="#5b53e0" stroke-width="1.9"/><circle cx="12" cy="12" r="5" fill="none" stroke="#5b53e0" stroke-width="1.9"/><circle cx="12" cy="12" r="1.7" fill="#5b53e0"/></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.2" fill="none" stroke="#5b53e0" stroke-width="2.1"/><line x1="14.6" y1="14.6" x2="20.5" y2="20.5" stroke="#5b53e0" stroke-width="2.1" stroke-linecap="round"/></symbol>
-    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.5l8.5 4.8v9.4L12 21.5 3.5 16.7V7.3z" fill="#e0f2ec" stroke="#0f9271" stroke-width="1.6"/><path d="M12 12v9.5M3.5 7.3L12 12l8.5-4.7" fill="none" stroke="#0f9271" stroke-width="1.3"/></symbol>
-    <symbol id="i-plan" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="#ecebfb" stroke="#5b53e0" stroke-width="1.6"/><path d="M8 12l2.6 2.6L16.5 8.5" fill="none" stroke="#5b53e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <linearGradient id="gb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3f3fe"/><stop offset="1" stop-color="#e7e8fc"/></linearGradient>
-    <linearGradient id="gb2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf8ec"/><stop offset="1" stop-color="#f9f1dc"/></linearGradient>
-    <linearGradient id="gb3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eaf7f2"/><stop offset="1" stop-color="#dbefe7"/></linearGradient>
-    <filter id="soft" x="-8%" y="-8%" width="116%" height="120%"><feDropShadow dx="0" dy="2.5" stdDeviation="5.5" flood-color="#1b2b52" flood-opacity="0.10"/></filter>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.4" fill="#6c63f0" stroke="#322e4a" stroke-width="1.7"/><path d="M3.6 21.5c0-4.9 3.7-7.7 8.4-7.7s8.4 2.8 8.4 7.7z" fill="#6c63f0" stroke="#322e4a" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-robot" viewBox="0 0 24 24"><line x1="12" y1="1.3" x2="12" y2="4.8" stroke="#322e4a" stroke-width="2.1"/><circle cx="12" cy="1.6" r="1.8" fill="#6c63f0" stroke="#322e4a" stroke-width="1.3"/><rect x="3" y="4.8" width="18" height="14.4" rx="5.2" fill="#6c63f0" stroke="#322e4a" stroke-width="1.9"/><circle cx="8.6" cy="11" r="2.1" fill="#fff" stroke="#322e4a" stroke-width="1.3"/><circle cx="15.4" cy="11" r="2.1" fill="#fff" stroke="#322e4a" stroke-width="1.3"/><path d="M8.7 15q3.3 2.2 6.6 0" fill="none" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M5.5 2.5h8.5l5 5v13.5a1.6 1.6 0 0 1-1.6 1.6H5.5a1.6 1.6 0 0 1-1.6-1.6V4.1A1.6 1.6 0 0 1 5.5 2.5z" fill="#fff" stroke="#322e4a" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2.5v5h5" fill="none" stroke="#322e4a" stroke-width="1.8" stroke-linejoin="round"/><line x1="8.5" y1="12.5" x2="15.5" y2="12.5" stroke="#8b83e6" stroke-width="1.9" stroke-linecap="round"/><line x1="8.5" y1="16" x2="15.5" y2="16" stroke="#8b83e6" stroke-width="1.9" stroke-linecap="round"/><line x1="8.5" y1="19.5" x2="12.5" y2="19.5" stroke="#c6c1ef" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><path d="M4 6v12c0 1.9 3.6 3.2 8 3.2s8-1.3 8-3.2V6" fill="#1cbd96" stroke="#322e4a" stroke-width="1.8" stroke-linejoin="round"/><ellipse cx="12" cy="6" rx="8" ry="3.2" fill="#3ad3ac" stroke="#322e4a" stroke-width="1.8"/><path d="M4 12c0 1.9 3.6 3.2 8 3.2s8-1.3 8-3.2" fill="none" stroke="#322e4a" stroke-width="1.4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.6" fill="#1cbd96" stroke="#322e4a" stroke-width="1.9"/><path d="M7.5 12.4l2.9 2.9 5.9-6.3" fill="none" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><rect x="2.4" y="12.5" width="5.1" height="8.6" rx="1.8" fill="#6c63f0" stroke="#322e4a" stroke-width="1.6"/><rect x="9.4" y="7.4" width="5.1" height="13.7" rx="1.8" fill="#1cbd96" stroke="#322e4a" stroke-width="1.6"/><rect x="16.4" y="3.4" width="5.1" height="17.7" rx="1.8" fill="#f4b636" stroke="#322e4a" stroke-width="1.6"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><rect x="1.8" y="3.4" width="20.4" height="17.2" rx="4" fill="#f3f2fc" stroke="#322e4a" stroke-width="1.8"/><path d="M1.8 7.2a3.8 3.8 0 0 1 3.8-3.8h12.8a3.8 3.8 0 0 1 3.8 3.8v0.9H1.8z" fill="#e7e3f8"/><line x1="1.8" y1="8.1" x2="22.2" y2="8.1" stroke="#322e4a" stroke-width="1.3"/><circle cx="5.4" cy="5.8" r="1" fill="#8b83e6"/><circle cx="8" cy="5.8" r="1" fill="#1cbd96"/><circle cx="10.6" cy="5.8" r="1" fill="#f4b636"/><line x1="5.4" y1="12" x2="12" y2="12" stroke="#8b83e6" stroke-width="1.9" stroke-linecap="round"/><line x1="5.4" y1="15" x2="17.2" y2="15" stroke="#1cbd96" stroke-width="1.9" stroke-linecap="round"/><line x1="5.4" y1="18" x2="12.6" y2="18" stroke="#f4b636" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-dna" viewBox="0 0 24 24"><path d="M7.5 2.5c0 5.6 9 6.4 9 9.5s-9 3.9-9 9.5" fill="none" stroke="#6c63f0" stroke-width="2.8" stroke-linecap="round"/><path d="M16.5 2.5c0 5.6-9 6.4-9 9.5s9 3.9 9 9.5" fill="none" stroke="#1cbd96" stroke-width="2.8" stroke-linecap="round"/><line x1="9" y1="6.4" x2="15" y2="6.4" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="17.6" x2="15" y2="17.6" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.4" fill="#fff" stroke="#322e4a" stroke-width="1.9"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#6c63f0" stroke-width="2.4"/><circle cx="12" cy="12" r="2" fill="#6c63f0" stroke="#322e4a" stroke-width="1.2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5" fill="#fff" stroke="#322e4a" stroke-width="2.3"/><line x1="14.9" y1="14.9" x2="20.6" y2="20.6" stroke="#322e4a" stroke-width="2.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.3l8.8 4.9v9.6L12 21.9 3.2 16.8V7.2z" fill="#c8ecdf" stroke="#322e4a" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 12.2v9.7M3.2 7.2L12 12.2l8.8-5" fill="none" stroke="#322e4a" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plan" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="#e7e3fb" stroke="#322e4a" stroke-width="1.9"/><path d="M7.4 12l2.9 2.9 6-6.3" fill="none" stroke="#322e4a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+    <linearGradient id="gb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eeecff"/><stop offset="1" stop-color="#e2e0fb"/></linearGradient>
+    <linearGradient id="gb2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fdf5e4"/><stop offset="1" stop-color="#faeecf"/></linearGradient>
+    <linearGradient id="gb3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e4f7ef"/><stop offset="1" stop-color="#d6f0e5"/></linearGradient>
+    <filter id="soft" x="-14%" y="-14%" width="128%" height="132%"><feDropShadow dx="4.5" dy="4.5" stdDeviation="0.4" flood-color="#322e4a" flood-opacity="1"/></filter>
+    <filter id="pop" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="3" dy="3" stdDeviation="0.4" flood-color="#322e4a" flood-opacity="1"/></filter>
   </defs>
 
   <rect x="0" y="0" width="1000" height="1366" fill="#ffffff"/>
 
   <!-- ============ BAND 1: AUTHOR ============ -->
-  <rect x="16" y="16" width="968" height="312" rx="22" fill="url(#gb1)" stroke="#cdccf3" stroke-width="1.5"/>
-  <text x="500" y="58" text-anchor="middle" font-size="22" font-weight="700" fill="#3f3ab0">Helix Studio — author &amp; review</text>
+  <rect x="18" y="18" width="964" height="308" rx="26" fill="url(#gb1)" stroke="#322e4a" stroke-width="2.6"/>
+  <text x="500" y="60" text-anchor="middle" font-size="24" font-weight="800" fill="#4a3fd0">Helix Studio — author &amp; review</text>
 
-  <use href="#i-user" x="44" y="92" width="42" height="42"/>
-  <text x="65" y="150" text-anchor="middle" font-size="12" fill="#525863">You</text>
-  <rect x="104" y="90" width="300" height="52" rx="12" fill="#ffffff" stroke="#cdccf3"/>
-  <text x="254" y="112" text-anchor="middle" font-size="12.5" fill="#12151f">Knock out TP53 in HEK293T —</text>
-  <text x="254" y="130" text-anchor="middle" font-size="12.5" fill="#12151f">3 guides, avoid BsaI</text>
+  <use href="#i-user" x="44" y="92" width="44" height="44"/>
+  <text x="66" y="152" text-anchor="middle" font-size="12.5" font-weight="600" fill="#4a4658">You</text>
+  <rect x="106" y="90" width="300" height="54" rx="15" fill="#ffffff" stroke="#322e4a" stroke-width="2.2" filter="url(#pop)"/>
+  <text x="256" y="112" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2b2740">Knock out TP53 in HEK293T —</text>
+  <text x="256" y="130" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2b2740">3 guides, avoid BsaI</text>
 
-  <use href="#i-robot" x="46" y="176" width="40" height="40"/>
-  <rect x="104" y="172" width="316" height="52" rx="12" fill="#ffffff" stroke="#cdccf3"/>
-  <text x="262" y="194" text-anchor="middle" font-size="12.5" fill="#12151f">3 ranked guides — safety-screened,</text>
-  <text x="262" y="212" text-anchor="middle" font-size="12.5" fill="#12151f">reproducible, order-ready</text>
+  <use href="#i-robot" x="46" y="176" width="42" height="42"/>
+  <rect x="106" y="174" width="316" height="54" rx="15" fill="#ffffff" stroke="#322e4a" stroke-width="2.2" filter="url(#pop)"/>
+  <text x="264" y="196" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2b2740">3 ranked guides — safety-screened,</text>
+  <text x="264" y="214" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2b2740">reproducible, order-ready</text>
 
   <!-- helix spec in the middle -->
-  <line x1="432" y1="158" x2="470" y2="158" stroke="#9aa0ac" stroke-width="1.6" marker-end="url(#ah)"/>
-  <use href="#i-doc" x="486" y="120" width="46" height="52"/>
-  <text x="509" y="192" text-anchor="middle" font-size="12.5" font-weight="600" fill="#3f3ab0">Helix spec</text>
-  <line x1="548" y1="158" x2="586" y2="158" stroke="#9aa0ac" stroke-width="1.6" marker-end="url(#ah)"/>
+  <line x1="436" y1="158" x2="472" y2="158" stroke="#322e4a" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah)"/>
+  <use href="#i-doc" x="486" y="120" width="48" height="54"/>
+  <text x="510" y="194" text-anchor="middle" font-size="13" font-weight="700" fill="#4a3fd0">Helix spec</text>
+  <line x1="550" y1="158" x2="586" y2="158" stroke="#322e4a" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah)"/>
 
   <!-- editor card -->
-  <rect x="642" y="84" width="326" height="196" rx="16" fill="#ffffff" stroke="#cdccf3" filter="url(#soft)"/>
-  <text x="668" y="116" font-size="14.5" font-weight="700" fill="#12151f">Spec editor</text>
-  <g font-size="12.5" fill="#525863">
-    <circle cx="672" cy="140" r="3" fill="#5b53e0"/><text x="684" y="145">target</text>
-    <circle cx="672" cy="166" r="3" fill="#5b53e0"/><text x="684" y="171">constraints</text>
-    <circle cx="672" cy="192" r="3" fill="#5b53e0"/><text x="684" y="197">strategy</text>
-    <circle cx="672" cy="218" r="3" fill="#5b53e0"/><text x="684" y="223">simulate</text>
+  <rect x="642" y="82" width="326" height="200" rx="20" fill="#ffffff" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
+  <text x="668" y="116" font-size="15.5" font-weight="800" fill="#2b2740">Spec editor</text>
+  <g font-size="13" font-weight="600" fill="#4a4658">
+    <circle cx="673" cy="140" r="3.4" fill="#6c63f0" stroke="#322e4a" stroke-width="1"/><text x="686" y="145">target</text>
+    <circle cx="673" cy="166" r="3.4" fill="#6c63f0" stroke="#322e4a" stroke-width="1"/><text x="686" y="171">constraints</text>
+    <circle cx="673" cy="192" r="3.4" fill="#6c63f0" stroke="#322e4a" stroke-width="1"/><text x="686" y="197">strategy</text>
+    <circle cx="673" cy="218" r="3.4" fill="#6c63f0" stroke="#322e4a" stroke-width="1"/><text x="686" y="223">simulate</text>
   </g>
-  <use href="#i-code" x="812" y="132" width="134" height="108"/>
+  <use href="#i-code" x="814" y="132" width="132" height="112"/>
 
-  <text x="44" y="308" font-size="12" fill="#6b62c9" font-weight="600">Drive it via&#160;&#160;·&#160;&#160;CLI&#160;&#160;·&#160;&#160;Web UI&#160;&#160;·&#160;&#160;MCP (agents)</text>
+  <text x="46" y="308" font-size="12.5" fill="#5b52c4" font-weight="700">Drive it via&#160;&#160;·&#160;&#160;CLI&#160;&#160;·&#160;&#160;Web UI&#160;&#160;·&#160;&#160;MCP (agents)</text>
 
   <!-- connector 1 -> 2 -->
-  <line x1="805" y1="328" x2="805" y2="356" stroke="#b7bcc7" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="805" y1="330" x2="805" y2="356" stroke="#322e4a" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah)"/>
 
   <!-- ============ BAND 2: COMPILE ============ -->
-  <rect x="16" y="356" width="968" height="470" rx="22" fill="url(#gb2)" stroke="#e9ddba" stroke-width="1.5"/>
-  <text x="500" y="398" text-anchor="middle" font-size="22" font-weight="700" fill="#a56f18">Deterministic compiler</text>
+  <rect x="18" y="358" width="964" height="466" rx="26" fill="url(#gb2)" stroke="#322e4a" stroke-width="2.6"/>
+  <text x="500" y="400" text-anchor="middle" font-size="24" font-weight="800" fill="#b57414">Deterministic compiler</text>
 
   <!-- col 1: pipeline -->
-  <rect x="40" y="420" width="266" height="386" rx="16" fill="#ffffff" stroke="#e9ddba" stroke-dasharray="4 4" filter="url(#soft)"/>
-  <use href="#i-plan" x="60" y="438" width="24" height="24"/>
-  <text x="92" y="456" font-size="14.5" font-weight="700" fill="#12151f">Compile pipeline</text>
-  <text x="60" y="476" font-size="11" fill="#9c7c33">solves constraints · reports infeasible</text>
-  <g font-size="13" font-weight="600" fill="#4840c4">
-    <rect x="60" y="486" width="226" height="34" rx="9" fill="#ecebfb"/><text x="173" y="508" text-anchor="middle">safety screen</text>
-    <rect x="60" y="530" width="226" height="34" rx="9" fill="#ecebfb"/><text x="173" y="552" text-anchor="middle">strategy · enzyme</text>
-    <rect x="60" y="574" width="226" height="34" rx="9" fill="#ecebfb"/><text x="173" y="596" text-anchor="middle">target · window</text>
-    <rect x="60" y="618" width="226" height="34" rx="9" fill="#ecebfb"/><text x="173" y="640" text-anchor="middle">guide design</text>
-    <rect x="60" y="662" width="226" height="34" rx="9" fill="#ecebfb"/><text x="173" y="684" text-anchor="middle">simulate · score</text>
-    <rect x="60" y="706" width="226" height="34" rx="9" fill="#ecebfb"/><text x="173" y="728" text-anchor="middle">constraints · rank</text>
-    <rect x="60" y="750" width="226" height="34" rx="9" fill="#ecebfb"/><text x="173" y="772" text-anchor="middle">delivery · primers</text>
+  <rect x="42" y="422" width="264" height="382" rx="20" fill="#ffffff" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
+  <use href="#i-plan" x="60" y="438" width="25" height="25"/>
+  <text x="93" y="456" font-size="15" font-weight="800" fill="#2b2740">Compile pipeline</text>
+  <text x="60" y="476" font-size="11" font-weight="600" fill="#a67a26">solves constraints · reports infeasible</text>
+  <g font-size="13" font-weight="700" fill="#4034b8">
+    <rect x="60" y="486" width="226" height="34" rx="11" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="173" y="508" text-anchor="middle">safety screen</text>
+    <rect x="60" y="530" width="226" height="34" rx="11" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="173" y="552" text-anchor="middle">strategy · enzyme</text>
+    <rect x="60" y="574" width="226" height="34" rx="11" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="173" y="596" text-anchor="middle">target · window</text>
+    <rect x="60" y="618" width="226" height="34" rx="11" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="173" y="640" text-anchor="middle">guide design</text>
+    <rect x="60" y="662" width="226" height="34" rx="11" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="173" y="684" text-anchor="middle">simulate · score</text>
+    <rect x="60" y="706" width="226" height="34" rx="11" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="173" y="728" text-anchor="middle">constraints · rank</text>
+    <rect x="60" y="750" width="226" height="34" rx="11" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="173" y="772" text-anchor="middle">delivery · primers</text>
   </g>
 
   <!-- col 2: agents & builders -->
-  <rect x="330" y="420" width="340" height="386" rx="16" fill="#ffffff" stroke="#e9ddba" stroke-dasharray="4 4" filter="url(#soft)"/>
-  <text x="500" y="456" text-anchor="middle" font-size="14.5" font-weight="700" fill="#12151f">Agents &amp; builders</text>
-  <rect x="352" y="472" width="296" height="72" rx="12" fill="#fdfaf3" stroke="#ece1c6"/>
-  <use href="#i-db" x="366" y="490" width="34" height="34"/>
-  <text x="414" y="502" font-size="13" font-weight="600" fill="#12151f">Database connector</text>
-  <text x="414" y="522" font-size="11.5" fill="#878d9b">Ensembl · NCBI — live gene resolution</text>
-  <rect x="352" y="552" width="296" height="82" rx="12" fill="#fdfaf3" stroke="#ece1c6"/>
-  <use href="#i-robot" x="366" y="570" width="30" height="30"/>
+  <rect x="330" y="422" width="340" height="382" rx="20" fill="#ffffff" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
+  <text x="500" y="456" text-anchor="middle" font-size="15" font-weight="800" fill="#2b2740">Agents &amp; builders</text>
+  <rect x="352" y="472" width="296" height="70" rx="14" fill="#fbfafe" stroke="#322e4a" stroke-width="1.8"/>
+  <use href="#i-db" x="366" y="489" width="34" height="34"/>
+  <text x="414" y="502" font-size="13" font-weight="700" fill="#2b2740">Database connector</text>
+  <text x="414" y="521" font-size="11.5" font-weight="500" fill="#6c7180">Ensembl · NCBI — live gene resolution</text>
+  <rect x="352" y="550" width="296" height="82" rx="14" fill="#fbfafe" stroke="#322e4a" stroke-width="1.8"/>
+  <use href="#i-robot" x="366" y="568" width="30" height="30"/>
   <use href="#i-search" x="366" y="600" width="26" height="26"/>
-  <text x="410" y="580" font-size="13" font-weight="600" fill="#12151f">Reasoning agents (LLM)</text>
-  <text x="410" y="600" font-size="11.5" fill="#878d9b">Author · Critic — propose /</text>
-  <text x="410" y="617" font-size="11.5" fill="#878d9b">critique the spec only</text>
-  <rect x="352" y="642" width="142" height="72" rx="12" fill="#fdfaf3" stroke="#ece1c6"/>
-  <use href="#i-check" x="367" y="656" width="26" height="26"/>
-  <text x="401" y="674" font-size="12.5" font-weight="600" fill="#12151f">Verifier</text>
-  <text x="367" y="700" font-size="11" fill="#878d9b">biosecurity screen</text>
-  <rect x="506" y="642" width="142" height="72" rx="12" fill="#fdfaf3" stroke="#ece1c6"/>
-  <use href="#i-code" x="521" y="655" width="30" height="26"/>
-  <text x="558" y="674" font-size="12.5" font-weight="600" fill="#12151f">Spec builder</text>
-  <text x="521" y="700" font-size="11" fill="#878d9b">validated IR</text>
-  <text x="500" y="742" text-anchor="middle" font-size="11.5" fill="#9c7c33">agents may only emit / edit a spec — never the design</text>
+  <text x="410" y="578" font-size="13" font-weight="700" fill="#2b2740">Reasoning agents (LLM)</text>
+  <text x="410" y="598" font-size="11.5" font-weight="500" fill="#6c7180">Author · Critic — propose /</text>
+  <text x="410" y="615" font-size="11.5" font-weight="500" fill="#6c7180">critique the spec only</text>
+  <rect x="352" y="640" width="142" height="72" rx="14" fill="#fbfafe" stroke="#322e4a" stroke-width="1.8"/>
+  <use href="#i-check" x="367" y="654" width="26" height="26"/>
+  <text x="401" y="672" font-size="12.5" font-weight="700" fill="#2b2740">Verifier</text>
+  <text x="367" y="698" font-size="11" font-weight="500" fill="#6c7180">biosecurity screen</text>
+  <rect x="506" y="640" width="142" height="72" rx="14" fill="#fbfafe" stroke="#322e4a" stroke-width="1.8"/>
+  <use href="#i-code" x="521" y="653" width="30" height="26"/>
+  <text x="558" y="672" font-size="12.5" font-weight="700" fill="#2b2740">Spec builder</text>
+  <text x="521" y="698" font-size="11" font-weight="500" fill="#6c7180">validated IR</text>
+  <text x="500" y="742" text-anchor="middle" font-size="11.5" font-weight="600" fill="#a67a26">agents may only emit / edit a spec — never the design</text>
 
   <!-- col 3: design store -->
-  <rect x="694" y="420" width="290" height="386" rx="16" fill="#ffffff" stroke="#e9ddba" stroke-dasharray="4 4" filter="url(#soft)"/>
-  <text x="839" y="456" text-anchor="middle" font-size="14.5" font-weight="700" fill="#12151f">Design store</text>
-  <use href="#i-code" x="718" y="478" width="120" height="94"/>
-  <use href="#i-code" x="852" y="478" width="120" height="94"/>
-  <text x="839" y="592" text-anchor="middle" font-size="12.5" font-weight="600" fill="#4840c4">design.json · protocol.md</text>
-  <rect x="718" y="612" width="254" height="86" rx="12" fill="#fdfaf3" stroke="#ece1c6"/>
-  <use href="#i-doc" x="734" y="632" width="34" height="40"/>
-  <use href="#i-db" x="776" y="634" width="32" height="34"/>
-  <text x="822" y="648" font-size="13" font-weight="600" fill="#12151f">Provenance</text>
-  <text x="822" y="668" font-size="11.5" fill="#878d9b">exact adapters + versions,</text>
-  <text x="822" y="685" font-size="11.5" fill="#878d9b">so every run reproduces</text>
-  <text x="839" y="738" text-anchor="middle" font-size="12" fill="#a56f18" font-weight="600">diff · version · re-run</text>
+  <rect x="694" y="422" width="288" height="382" rx="20" fill="#ffffff" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
+  <text x="838" y="456" text-anchor="middle" font-size="15" font-weight="800" fill="#2b2740">Design store</text>
+  <use href="#i-code" x="716" y="476" width="122" height="96"/>
+  <use href="#i-code" x="850" y="476" width="122" height="96"/>
+  <text x="838" y="592" text-anchor="middle" font-size="12.5" font-weight="700" fill="#4034b8">design.json · protocol.md</text>
+  <rect x="716" y="612" width="254" height="86" rx="14" fill="#fbfafe" stroke="#322e4a" stroke-width="1.8"/>
+  <use href="#i-doc" x="732" y="632" width="34" height="40"/>
+  <use href="#i-db" x="774" y="634" width="32" height="34"/>
+  <text x="820" y="648" font-size="13" font-weight="700" fill="#2b2740">Provenance</text>
+  <text x="820" y="668" font-size="11.5" font-weight="500" fill="#6c7180">exact adapters + versions,</text>
+  <text x="820" y="685" font-size="11.5" font-weight="500" fill="#6c7180">so every run reproduces</text>
+  <text x="838" y="738" text-anchor="middle" font-size="12" font-weight="700" fill="#b57414">diff · version · re-run</text>
 
   <!-- connectors 2 -> 3 -->
-  <line x1="360" y1="826" x2="360" y2="856" stroke="#b7bcc7" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#ah)"/>
-  <line x1="640" y1="826" x2="640" y2="856" stroke="#b7bcc7" stroke-width="1.8" stroke-dasharray="5 5" marker-end="url(#ah)"/>
+  <line x1="360" y1="824" x2="360" y2="856" stroke="#322e4a" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="640" y1="824" x2="640" y2="856" stroke="#322e4a" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah)"/>
 
   <!-- ============ BAND 3: SIMULATE & SCORE ============ -->
-  <rect x="16" y="856" width="968" height="494" rx="22" fill="url(#gb3)" stroke="#bfe3d6" stroke-width="1.5"/>
-  <text x="500" y="898" text-anchor="middle" font-size="22" font-weight="700" fill="#0b6b53">Simulate &amp; score — injectable backends</text>
-  <text x="500" y="922" text-anchor="middle" font-size="12.5" fill="#3f8f78">heuristic default offline&#160;&#160;⇄&#160;&#160;a real tool, switched by a spec edit (not code)</text>
+  <rect x="18" y="858" width="964" height="490" rx="26" fill="url(#gb3)" stroke="#322e4a" stroke-width="2.6"/>
+  <text x="500" y="900" text-anchor="middle" font-size="24" font-weight="800" fill="#0c7c5f">Simulate &amp; score — injectable backends</text>
+  <text x="500" y="924" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2f8f74">heuristic default offline&#160;&#160;⇄&#160;&#160;a real tool, switched by a spec edit (not code)</text>
 
   <!-- guide candidates -->
-  <rect x="44" y="960" width="176" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6" filter="url(#soft)"/>
-  <text x="132" y="990" text-anchor="middle" font-size="14" font-weight="700" fill="#12151f">Guide candidates</text>
-  <use href="#i-dna" x="72" y="1010" width="34" height="34"/><text x="118" y="1032" font-size="12" fill="#525863">every PAM site</text>
-  <use href="#i-dna" x="72" y="1058" width="34" height="34"/><text x="118" y="1080" font-size="12" fill="#525863">both strands</text>
-  <use href="#i-dna" x="72" y="1106" width="34" height="34"/><text x="118" y="1128" font-size="12" fill="#525863">+ pegRNAs /</text>
-  <text x="118" y="1146" font-size="12" fill="#525863">donors</text>
-  <text x="132" y="1268" text-anchor="middle" font-size="11.5" fill="#3f8f78">enumerated by the</text>
-  <text x="132" y="1284" text-anchor="middle" font-size="11.5" fill="#3f8f78">compiler</text>
+  <rect x="44" y="960" width="176" height="330" rx="20" fill="#ffffff" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
+  <text x="132" y="992" text-anchor="middle" font-size="14.5" font-weight="800" fill="#2b2740">Guide candidates</text>
+  <use href="#i-dna" x="72" y="1010" width="34" height="34"/><text x="118" y="1032" font-size="12" font-weight="600" fill="#4a4658">every PAM site</text>
+  <use href="#i-dna" x="72" y="1058" width="34" height="34"/><text x="118" y="1080" font-size="12" font-weight="600" fill="#4a4658">both strands</text>
+  <use href="#i-dna" x="72" y="1106" width="34" height="34"/><text x="118" y="1128" font-size="12" font-weight="600" fill="#4a4658">+ pegRNAs /</text>
+  <text x="118" y="1146" font-size="12" font-weight="600" fill="#4a4658">donors</text>
+  <text x="132" y="1268" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2f8f74">enumerated by the</text>
+  <text x="132" y="1284" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2f8f74">compiler</text>
 
-  <line x1="224" y1="1125" x2="262" y2="1125" stroke="#3f8f78" stroke-width="1.8" marker-end="url(#ahg)"/>
+  <line x1="224" y1="1125" x2="262" y2="1125" stroke="#322e4a" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah)"/>
 
   <!-- backends grid -->
-  <rect x="270" y="960" width="416" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6" filter="url(#soft)"/>
-  <text x="478" y="990" text-anchor="middle" font-size="14" font-weight="700" fill="#12151f">scored by pluggable backends</text>
-  <g>
-    <rect x="290" y="1006" width="188" height="80" rx="12" fill="#f0faf6" stroke="#cde9df"/>
-    <use href="#i-db" x="304" y="1024" width="32" height="32"/><text x="346" y="1036" font-size="12.5" font-weight="600" fill="#12151f">sequence</text><text x="346" y="1055" font-size="11" fill="#878d9b">inline · Ensembl</text><text x="346" y="1071" font-size="11" fill="#878d9b">· NCBI</text>
-    <rect x="490" y="1006" width="182" height="80" rx="12" fill="#f0faf6" stroke="#cde9df"/>
-    <use href="#i-target" x="504" y="1024" width="32" height="32"/><text x="546" y="1036" font-size="12.5" font-weight="600" fill="#12151f">on / off-target</text><text x="546" y="1055" font-size="11" fill="#878d9b">Doench · CFD /</text><text x="546" y="1071" font-size="11" fill="#878d9b">Cas-OFFinder</text>
-    <rect x="290" y="1098" width="188" height="80" rx="12" fill="#f0faf6" stroke="#cde9df"/>
-    <use href="#i-chart" x="304" y="1116" width="32" height="32"/><text x="346" y="1128" font-size="12.5" font-weight="600" fill="#12151f">edit outcome</text><text x="346" y="1147" font-size="11" fill="#878d9b">inDelphi · BE-Hive</text><text x="346" y="1163" font-size="11" fill="#878d9b">· PRIDICT</text>
-    <rect x="490" y="1098" width="182" height="80" rx="12" fill="#f0faf6" stroke="#cde9df"/>
-    <use href="#i-dna" x="504" y="1116" width="32" height="32"/><text x="546" y="1128" font-size="12.5" font-weight="600" fill="#12151f">variants</text><text x="546" y="1147" font-size="11" fill="#878d9b">Ensembl seed /</text><text x="546" y="1163" font-size="11" fill="#878d9b">PAM SNPs</text>
-    <rect x="290" y="1190" width="382" height="80" rx="12" fill="#f0faf6" stroke="#cde9df"/>
-    <use href="#i-cube" x="304" y="1208" width="32" height="32"/><text x="346" y="1220" font-size="12.5" font-weight="600" fill="#12151f">structure / folding</text><text x="346" y="1239" font-size="11" fill="#878d9b">ESMFold · AlphaFold3 / Boltz — Cas9–gRNA–DNA complex</text><text x="346" y="1255" font-size="11" fill="#878d9b">+ protein-consequence &amp; reading-frame calls</text>
+  <rect x="270" y="960" width="416" height="330" rx="20" fill="#ffffff" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
+  <text x="478" y="992" text-anchor="middle" font-size="14.5" font-weight="800" fill="#2b2740">scored by pluggable backends</text>
+  <g font-weight="500">
+    <rect x="290" y="1006" width="188" height="80" rx="14" fill="#f2fbf7" stroke="#322e4a" stroke-width="1.8"/>
+    <use href="#i-db" x="304" y="1024" width="32" height="32"/><text x="346" y="1036" font-size="12.5" font-weight="700" fill="#2b2740">sequence</text><text x="346" y="1055" font-size="11" fill="#6c7180">inline · Ensembl</text><text x="346" y="1071" font-size="11" fill="#6c7180">· NCBI</text>
+    <rect x="490" y="1006" width="182" height="80" rx="14" fill="#f2fbf7" stroke="#322e4a" stroke-width="1.8"/>
+    <use href="#i-target" x="504" y="1024" width="32" height="32"/><text x="546" y="1036" font-size="12.5" font-weight="700" fill="#2b2740">on / off-target</text><text x="546" y="1055" font-size="11" fill="#6c7180">Doench · CFD /</text><text x="546" y="1071" font-size="11" fill="#6c7180">Cas-OFFinder</text>
+    <rect x="290" y="1098" width="188" height="80" rx="14" fill="#f2fbf7" stroke="#322e4a" stroke-width="1.8"/>
+    <use href="#i-chart" x="304" y="1116" width="32" height="32"/><text x="346" y="1128" font-size="12.5" font-weight="700" fill="#2b2740">edit outcome</text><text x="346" y="1147" font-size="11" fill="#6c7180">inDelphi · BE-Hive</text><text x="346" y="1163" font-size="11" fill="#6c7180">· PRIDICT</text>
+    <rect x="490" y="1098" width="182" height="80" rx="14" fill="#f2fbf7" stroke="#322e4a" stroke-width="1.8"/>
+    <use href="#i-dna" x="504" y="1116" width="32" height="32"/><text x="546" y="1128" font-size="12.5" font-weight="700" fill="#2b2740">variants</text><text x="546" y="1147" font-size="11" fill="#6c7180">Ensembl seed /</text><text x="546" y="1163" font-size="11" fill="#6c7180">PAM SNPs</text>
+    <rect x="290" y="1190" width="382" height="80" rx="14" fill="#f2fbf7" stroke="#322e4a" stroke-width="1.8"/>
+    <use href="#i-cube" x="304" y="1208" width="32" height="32"/><text x="346" y="1220" font-size="12.5" font-weight="700" fill="#2b2740">structure / folding</text><text x="346" y="1239" font-size="11" fill="#6c7180">ESMFold · AlphaFold3 / Boltz — Cas9–gRNA–DNA complex</text><text x="346" y="1255" font-size="11" fill="#6c7180">+ protein-consequence &amp; reading-frame calls</text>
   </g>
 
-  <line x1="690" y1="1125" x2="728" y2="1125" stroke="#3f8f78" stroke-width="1.8" marker-end="url(#ahg)"/>
+  <line x1="690" y1="1125" x2="728" y2="1125" stroke="#322e4a" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah)"/>
 
   <!-- results -->
-  <rect x="736" y="960" width="228" height="330" rx="16" fill="#ffffff" stroke="#bfe3d6" filter="url(#soft)"/>
-  <text x="850" y="990" text-anchor="middle" font-size="14" font-weight="700" fill="#0b6b53">Scored design</text>
-  <use href="#i-chart" x="758" y="1012" width="30" height="30"/><text x="798" y="1032" font-size="12.5" fill="#2f5b4c">ranked guides</text>
-  <use href="#i-target" x="758" y="1058" width="30" height="30"/><text x="798" y="1078" font-size="12.5" fill="#2f5b4c">off-target report</text>
-  <use href="#i-doc" x="760" y="1104" width="28" height="32"/><text x="798" y="1124" font-size="12.5" fill="#2f5b4c">outcome + protocol</text>
-  <use href="#i-cube" x="758" y="1150" width="30" height="30"/><text x="798" y="1170" font-size="12.5" fill="#2f5b4c">3D structure</text>
-  <use href="#i-check" x="758" y="1196" width="30" height="30"/><text x="798" y="1216" font-size="12.5" fill="#2f5b4c">safety verdict</text>
-  <text x="850" y="1262" text-anchor="middle" font-size="11.5" fill="#3f8f78">feeds back up to the</text>
-  <text x="850" y="1278" text-anchor="middle" font-size="11.5" fill="#3f8f78">design store &amp; editor</text>
+  <rect x="736" y="960" width="228" height="330" rx="20" fill="#ffffff" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
+  <text x="850" y="992" text-anchor="middle" font-size="14.5" font-weight="800" fill="#0c7c5f">Scored design</text>
+  <use href="#i-chart" x="758" y="1012" width="30" height="30"/><text x="798" y="1032" font-size="12.5" font-weight="600" fill="#2e5d4d">ranked guides</text>
+  <use href="#i-target" x="758" y="1058" width="30" height="30"/><text x="798" y="1078" font-size="12.5" font-weight="600" fill="#2e5d4d">off-target report</text>
+  <use href="#i-doc" x="760" y="1104" width="28" height="32"/><text x="798" y="1124" font-size="12.5" font-weight="600" fill="#2e5d4d">outcome + protocol</text>
+  <use href="#i-cube" x="758" y="1150" width="30" height="30"/><text x="798" y="1170" font-size="12.5" font-weight="600" fill="#2e5d4d">3D structure</text>
+  <use href="#i-check" x="758" y="1196" width="30" height="30"/><text x="798" y="1216" font-size="12.5" font-weight="600" fill="#2e5d4d">safety verdict</text>
+  <text x="850" y="1262" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2f8f74">feeds back up to the</text>
+  <text x="850" y="1278" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2f8f74">design store &amp; editor</text>
 </svg>
