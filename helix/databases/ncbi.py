@@ -15,11 +15,11 @@ import json
 import time
 import urllib.error
 import urllib.request
-from typing import Callable, Dict, List
+from typing import Callable, Dict
 
 from helix.bio import normalize
 from helix.databases.base import GeneDatabaseError
-from helix.databases.models import Exon, GeneRecord, SeqRegion
+from helix.databases.models import GeneRecord, SeqRegion
 
 _DATASETS = "https://api.ncbi.nlm.nih.gov/datasets/v2alpha"
 _EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"

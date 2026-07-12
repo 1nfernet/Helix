@@ -8,7 +8,7 @@ hard constraint*, and reports infeasibility explicitly when it cannot.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import List, Tuple
+from typing import List
 
 from helix.bio import contains_restriction_site, gc_content, max_homopolymer_run, self_complementarity
 from helix.ir.design import ConstraintCheck, GuideCandidate, PrimeEditCandidate
