@@ -3,6 +3,11 @@
 All notable changes to Helix are documented here. This project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] — 2026-07-12
+
+- **docs**: use absolute image/link URLs in the README so images and links render on
+  the PyPI project page (relative paths only resolve on GitHub). No code changes.
+
 ## [0.1.0] — 2026-07-10
 
 First public release: a declarative DSL and deterministic compiler for reproducible

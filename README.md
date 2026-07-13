@@ -1,18 +1,18 @@
 <div align="center">
 
-<img src="docs/logo.svg" width="78" height="78" alt="Helix logo" />
+<img src="https://raw.githubusercontent.com/coindef/Helix/main/docs/logo.svg" width="78" height="78" alt="Helix logo" />
 
 # Helix
 
 **A declarative DSL &amp; compiler for reproducible gene-editing design.**
 
 [![PyPI](https://img.shields.io/pypi/v/helix-dsl?color=5b53e0&label=pypi)](https://pypi.org/project/helix-dsl/)
-[![License](https://img.shields.io/github/license/coindef/Helix?color=5b53e0)](LICENSE)
+[![License](https://img.shields.io/github/license/coindef/Helix?color=5b53e0)](https://github.com/coindef/Helix/blob/main/LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-5b53e0)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-231%20passing-0f9271)](tests)
+[![Tests](https://img.shields.io/badge/tests-231%20passing-0f9271)](https://github.com/coindef/Helix/tree/main/tests)
 [![MCP](https://img.shields.io/badge/MCP-server-5b53e0)](#mcp-server)
 
-[Quickstart](#quickstart) · [Highlights](#highlights) · [The language](#the-language) · [Architecture](#architecture) · [MCP server](#mcp-server) · [Deep dive](ARCHITECTURE.md)
+[Quickstart](#quickstart) · [Highlights](#highlights) · [The language](#the-language) · [Architecture](#architecture) · [MCP server](#mcp-server) · [Deep dive](https://github.com/coindef/Helix/blob/main/ARCHITECTURE.md)
 
 </div>
 
@@ -23,7 +23,7 @@ LLM agents — turns it into a fully resolved, provenance-stamped **design** you
 diff, version, review, and re-run.
 
 <p align="center">
-  <img src="docs/hero.png" width="900"
+  <img src="https://raw.githubusercontent.com/coindef/Helix/main/docs/hero.png" width="900"
        alt="Helix web UI — a syntax-highlighted spec editor on the left; on the right the compiled design with ranked guides and protein-consequence badges (premature-STOP, missense, silent)." />
 </p>
 
@@ -57,7 +57,7 @@ helix validate examples/tp53_ko.hx                          # parse + safety scr
 
 `compile` prints a Markdown protocol and (with `-o`) writes `out/design.json` (the
 reproducible record) and `out/protocol.md` (what a bench scientist reads). See all
-eight modalities in [`examples/`](examples).
+eight modalities in [`examples/`](https://github.com/coindef/Helix/tree/main/examples).
 
 ## The language
 
@@ -87,12 +87,12 @@ helix "TP53_KO_HEK293" {
 - **`frame: 0`** unlocks the protein-consequence calls above and the guaranteed-synonymous HDR PAM-block.
 - **`variant_source: ensembl`** + `avoid: [common_variant(>=0.01)]` reject guides with a common SNP in the seed/PAM.
 
-Full grammar → [`GRAMMAR.md`](helix/frontend/helix_lang/GRAMMAR.md).
+Full grammar → [`GRAMMAR.md`](https://github.com/coindef/Helix/blob/main/helix/frontend/helix_lang/GRAMMAR.md).
 
 ## Architecture
 
 <p align="center">
-  <img src="docs/architecture.svg" width="820"
+  <img src="https://raw.githubusercontent.com/coindef/Helix/main/docs/architecture.svg" width="820"
        alt="Helix architecture — three layers: Helix Studio (author &amp; review) feeds the deterministic compiler (compile pipeline, agents &amp; builders, design store), which draws on a Simulate &amp; score layer of injectable backends (sequence, on/off-target, edit outcome, variants, folding)." />
 </p>
 
@@ -102,7 +102,7 @@ Three layers:
 2. **Deterministic compiler** — a fixed pipeline (safety → strategy → target → guides → simulate → constraints → primers) plus narrowly-scoped LLM agents/builders and a provenance-stamped design store. *Agents only touch the spec; the compiler owns the design.*
 3. **Simulate & score** — pluggable backends score each candidate. Heuristics run offline by default; a spec edit swaps in a real tool.
 
-Everything routes through injectable adapter **Protocols**, so the whole spine is testable offline and a real tool drops in behind the same interface. Deep dive → [`ARCHITECTURE.md`](ARCHITECTURE.md).
+Everything routes through injectable adapter **Protocols**, so the whole spine is testable offline and a real tool drops in behind the same interface. Deep dive → [`ARCHITECTURE.md`](https://github.com/coindef/Helix/blob/main/ARCHITECTURE.md).
 
 <a id="mcp-server"></a>
 ## MCP server — gene-editing design for agents
@@ -175,4 +175,4 @@ pip install -e '.[web]' && helix serve       # full app on http://localhost:8000
 
 ## License
 
-[Apache-2.0](LICENSE).
+[Apache-2.0](https://github.com/coindef/Helix/blob/main/LICENSE).
