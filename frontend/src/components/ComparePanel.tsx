@@ -106,8 +106,12 @@ export function ComparePanel({
           <span className="cmp-slot-name" title={name}>
             {name ?? byId(id)?.name ?? id}
           </span>
-          <button className="cmp-slot-x" title="clear" onClick={() => onPick(slot, "")}>
-            ×
+          <button
+            className="cmp-slot-x"
+            aria-label={`Clear slot ${slot.toUpperCase()}`}
+            onClick={() => onPick(slot, "")}
+          >
+            <span aria-hidden="true">×</span>
           </button>
         </>
       ) : (
@@ -126,11 +130,19 @@ export function ComparePanel({
 
       {a && b && sa && sb ? (
         <>
-          <div className="cmp-toggle">
-            <button className={view === "summary" ? "active" : ""} onClick={() => setView("summary")}>
+          <div className="cmp-toggle" role="group" aria-label="Compare view">
+            <button
+              aria-pressed={view === "summary"}
+              className={view === "summary" ? "active" : ""}
+              onClick={() => setView("summary")}
+            >
               Summary
             </button>
-            <button className={view === "guides" ? "active" : ""} onClick={() => setView("guides")}>
+            <button
+              aria-pressed={view === "guides"}
+              className={view === "guides" ? "active" : ""}
+              onClick={() => setView("guides")}
+            >
               Guides
             </button>
           </div>
@@ -142,7 +154,12 @@ export function ComparePanel({
                   return (
                     <tr key={k} className={differ ? "differ" : ""}>
                       <td className="cmp-a">{sa[k]}</td>
-                      <th className="cmp-k">{k}</th>
+                      {/* Finding the differences is the whole point of this table,
+                          and a tint is the only thing that marked them. */}
+                      <th className="cmp-k" scope="row">
+                        {k}
+                        {differ && <span className="sr-only"> (differs)</span>}
+                      </th>
                       <td className="cmp-b">{sb[k]}</td>
                     </tr>
                   );
@@ -164,6 +181,7 @@ export function ComparePanel({
         <div className="cmp-picker-head">
           <input
             className="cmp-search"
+            aria-label="Filter runs by name or modality"
             placeholder={`Filter ${runs.length} runs by name or modality…`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -180,7 +198,8 @@ export function ComparePanel({
                 onClick={() => assign(r.id)}
                 title={mark ? `Slot ${mark.toUpperCase()} — click to remove` : r.name}
               >
-                <span className={"dot-i " + (r.feasible ? "ok" : "warn")} />
+                <span className={"dot-i " + (r.feasible ? "ok" : "warn")} aria-hidden="true" />
+                <span className="sr-only">{r.feasible ? "feasible" : "infeasible"}. </span>
                 <span className="run-name">{r.name}</span>
                 <span className="run-meta">
                   {r.modality}

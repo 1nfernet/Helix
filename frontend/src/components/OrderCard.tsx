@@ -29,26 +29,28 @@ export function OrderCard({ design }: { design: ResolvedDesign }) {
           ~${data.cost.total_usd} · {data.cost.total_bases} nt · {data.cost.item_count} oligos
         </span>
       </div>
-      <table className="data order-table">
-        <thead>
-          <tr>
-            <th>name</th>
-            <th>kind</th>
-            <th>sequence (5′→3′)</th>
-            <th>nt</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.items.map((it) => (
-            <tr key={it.name} title={it.note}>
-              <td className="seq">{it.name}</td>
-              <td className="hint">{it.kind}</td>
-              <td className="seq order-seq">{it.sequence}</td>
-              <td className="num">{it.length}</td>
+      <div className="table-scroll">
+        <table className="data order-table">
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>kind</th>
+              <th>sequence (5′→3′)</th>
+              <th>nt</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.items.map((it) => (
+              <tr key={it.name} title={it.note}>
+                <td className="seq">{it.name}</td>
+                <td className="hint">{it.kind}</td>
+                <td className="seq order-seq">{it.sequence}</td>
+                <td className="num">{it.length}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <button className="btn" onClick={download}>
         Download CSV
       </button>

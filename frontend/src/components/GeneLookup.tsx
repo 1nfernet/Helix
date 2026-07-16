@@ -49,12 +49,18 @@ export function GeneLookup({
       <div className="ai-row">
         <input
           className="ai-input"
+          aria-label="Gene symbol"
           placeholder="Gene symbol — e.g. TP53"
           value={gene}
           onChange={(e) => setGene(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && run()}
         />
-        <select value={provider} onChange={(e) => setProvider(e.target.value)} style={{ flex: "none" }}>
+        <select
+          value={provider}
+          onChange={(e) => setProvider(e.target.value)}
+          aria-label="Sequence provider"
+          style={{ flex: "none" }}
+        >
           <option value="ensembl">Ensembl</option>
           <option value="ncbi">NCBI</option>
           <option value="fallback">Fallback</option>
@@ -63,7 +69,7 @@ export function GeneLookup({
           {busy ? "…" : "Resolve"}
         </button>
       </div>
-      {err && <div className="note">{err}</div>}
+      {err && <div className="note" role="alert">{err}</div>}
       {res && (
         <div className="resolve-out">
           <div className="hint">{res.source}</div>

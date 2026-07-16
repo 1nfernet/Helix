@@ -1,4 +1,5 @@
 import type { GuideCandidate, PrimeEditCandidate, ResolvedDesign } from "../types";
+import { PassMark } from "./Badge";
 import { ConsequenceBadge } from "./GuideTable";
 
 const TOP_N = 6;
@@ -34,7 +35,10 @@ function GuideCol({ d }: { d: ResolvedDesign }) {
         <tbody>
           {rows.map((p: PrimeEditCandidate) => (
             <tr key={p.rank ?? p.spacer} className={p.passed ? "selected" : ""}>
-              <td className="rank">{p.rank ?? "—"}</td>
+              <td className="rank">
+                {p.rank ?? "—"}
+                {p.passed && <PassMark label="passed the constraints" />}
+              </td>
               <td className="seq sm">{p.spacer}</td>
               <td className="num">{p.strand}</td>
               <td className="sm">
@@ -68,7 +72,10 @@ function GuideCol({ d }: { d: ResolvedDesign }) {
       <tbody>
         {rows.map((g: GuideCandidate) => (
           <tr key={g.rank ?? g.spacer} className={g.passed ? "selected" : ""}>
-            <td className="rank">{g.rank ?? "—"}</td>
+            <td className="rank">
+              {g.rank ?? "—"}
+              {g.passed && <PassMark label="passed the constraints" />}
+            </td>
             <td className="seq sm">{g.spacer}</td>
             <td className="num">{g.strand}</td>
             <td className="num">{(g.gc_content * 100).toFixed(0)}%</td>

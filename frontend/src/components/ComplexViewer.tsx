@@ -1,13 +1,31 @@
 import { useEffect, useRef, useState } from "react";
-import { Stage } from "ngl";
+import { ColormakerRegistry, Stage } from "ngl";
 import { foldDomain, getStructure } from "../api";
+import { CHAIN_HEX, STAGE_BG } from "../palette";
+import { onReducedMotionChange, prefersReducedMotion } from "../motion";
 import type { FoldResult, ResolvedDesign, StructureInfo } from "../types";
 
 interface Props {
   design: ResolvedDesign;
 }
 
-const CHAIN_COLOR: Record<string, string> = { protein: "#3f6fb0", rna: "#c96442", dna: "#4a7a53" };
+/** Colour the complex from CHAIN_HEX rather than NGL's stock "moleculetype"
+ *  scheme, so the swatches in the legend below are the colours actually on
+ *  screen — with the built-in scheme the legend was only guessing at them.
+ *  Registered once at module load; the id is stable for the session. */
+const CHAIN_SCHEME = ColormakerRegistry.addSelectionScheme(
+  // [colour, NGL selection, per-entry params]. The trailing `undefined` is the
+  // optional params slot the tuple type requires. "*" is the catch-all and must
+  // stay last — entries are matched in order.
+  [
+    [CHAIN_HEX.protein, "protein", undefined],
+    [CHAIN_HEX.rna, "rna", undefined],
+    [CHAIN_HEX.dna, "dna", undefined],
+    [CHAIN_HEX.other, "*", undefined],
+  ],
+  "helix-moleculetype"
+);
+
 const DOMAINS = [
   { id: "hnh", label: "HNH domain" },
   { id: "pi", label: "PAM-interacting" },
@@ -42,7 +60,7 @@ export function ComplexViewer({ design }: Props) {
     host.style.width = "100%";
     host.style.height = "100%";
     mount.appendChild(host);
-    const stage = new Stage(host, { backgroundColor: "#f7f4ee" });
+    const stage = new Stage(host, { backgroundColor: STAGE_BG });
 
     const loader = folded
       ? stage.loadFile(new Blob([folded.pdb], { type: "text/plain" }), { ext: "pdb" })
@@ -54,12 +72,14 @@ export function ComplexViewer({ design }: Props) {
         if (folded) {
           comp.addRepresentation("cartoon", { colorScheme: "bfactor", colorReverse: true });
         } else {
-          comp.addRepresentation("cartoon", { colorScheme: "moleculetype" });
-          comp.addRepresentation("base", { colorScheme: "moleculetype" });
+          comp.addRepresentation("cartoon", { colorScheme: CHAIN_SCHEME });
+          comp.addRepresentation("base", { colorScheme: CHAIN_SCHEME });
         }
         stage.handleResize();
         comp.autoView();
-        stage.setSpin(true);
+        // The idle spin is decoration; a reduced-motion user gets a still model
+        // they can still drag. CSS can't reach NGL's own render loop.
+        stage.setSpin(!prefersReducedMotion());
       })
       .catch(() => {
         if (!cancelled) setError(folded ? "Could not render the folded model." : `Could not load ${pdbId} from RCSB.`);
@@ -67,9 +87,11 @@ export function ComplexViewer({ design }: Props) {
 
     const onResize = () => stage.handleResize();
     window.addEventListener("resize", onResize);
+    const stopReducedWatch = onReducedMotionChange((reduced) => stage.setSpin(!reduced));
     return () => {
       cancelled = true;
       window.removeEventListener("resize", onResize);
+      stopReducedWatch();
       stage.dispose();
       host.remove();
     };
@@ -89,8 +111,13 @@ export function ComplexViewer({ design }: Props) {
 
   return (
     <>
-      <div ref={ref} className="helix-wrap">
-        {error && <div className="viewer-msg">{error}</div>}
+      <div
+        ref={ref}
+        className="helix-wrap"
+        role="img"
+        aria-label={`3D view of the Cas9 complex${folded ? `, folded model of ${folded.name}` : `, reference structure ${pdbId}`}. Drag to rotate.`}
+      >
+        {error && <div className="viewer-msg" role="alert">{error}</div>}
       </div>
       <div className="complex-info">
         {folded ? (
@@ -105,7 +132,7 @@ export function ComplexViewer({ design }: Props) {
                 <div className="chain-row">
                   {info.chains.map((c) => (
                     <span key={c.id} className="chain" title={c.sequence}>
-                      <i style={{ background: CHAIN_COLOR[c.type] ?? "#9a968d" }} />
+                      <i aria-hidden="true" style={{ background: CHAIN_HEX[c.type] ?? CHAIN_HEX.other }} />
                       {c.name} · {c.length}
                       {c.type === "protein" ? " aa" : c.type === "rna" ? " nt" : " bp"}
                     </span>
@@ -121,7 +148,12 @@ export function ComplexViewer({ design }: Props) {
           )
         )}
         <div className="ai-row2" style={{ marginTop: 10 }}>
-          <select value={region} onChange={(e) => setRegion(e.target.value)} style={{ flex: "none" }}>
+          <select
+            value={region}
+            onChange={(e) => setRegion(e.target.value)}
+            style={{ flex: "none" }}
+            aria-label="Domain to fold"
+          >
             {DOMAINS.map((d) => (
               <option key={d.id} value={d.id}>
                 {d.label}
@@ -133,7 +165,7 @@ export function ComplexViewer({ design }: Props) {
           </button>
           <span className="hint">real structure prediction (no GPU)</span>
         </div>
-        {foldErr && <div className="note" style={{ marginTop: 8 }}>{foldErr}</div>}
+        {foldErr && <div className="note" role="alert" style={{ marginTop: 8 }}>{foldErr}</div>}
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import type { GuideCandidate, ProteinConsequence } from "../types";
-import { Metric } from "./Badge";
+import { Metric, PassMark } from "./Badge";
 
 const MAX_ROWS = 15;
 
@@ -191,55 +191,68 @@ export function GuideTable({
             : "frameshift";
 
   return (
-    <table className="data">
-      <thead>
-        <tr>
-          <th className="rank">#</th>
-          <th>spacer (5′→3′)</th>
-          <th>PAM</th>
-          <th>str</th>
-          <th>on-target</th>
-          <th>max CFD</th>
-          <th>{outcomeHead}</th>
-          <th>composite</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((g) => {
-          const rank = g.rank ?? -1;
-          const isOpen = open === rank;
-          return (
-            <Fragment key={rank}>
-              <tr
-                className={"guide-row" + (selectedRanks.has(rank) ? " selected" : "") + (isOpen ? " open" : "")}
-                onClick={() => setOpen(isOpen ? null : rank)}
-                title="Click for off-targets & sequence context"
-              >
-                <td className="rank">
-                  <span className="row-caret">{isOpen ? "▾" : "▸"}</span>
-                  {g.rank}
-                </td>
-                <td className="seq">{g.spacer}</td>
-                <td className="seq">{g.pam}</td>
-                <td className="num">{g.strand}</td>
-                <td>
-                  <Metric value={g.on_target_score} />
-                </td>
-                <td className="num">{g.off_target.max_cfd.toFixed(2)}</td>
-                <td>{outcomeCell(g, modality)}</td>
-                <td className="num">{g.composite_score.toFixed(3)}</td>
-              </tr>
-              {isOpen && (
-                <tr className="detail-row">
-                  <td colSpan={8}>
-                    <GuideDetail g={g} sequence={sequence} />
+    <div className="table-scroll">
+      <table className="data">
+        <thead>
+          <tr>
+            <th className="rank">#</th>
+            <th>spacer (5′→3′)</th>
+            <th>PAM</th>
+            <th>str</th>
+            <th>on-target</th>
+            <th>max CFD</th>
+            <th>{outcomeHead}</th>
+            <th>composite</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((g) => {
+            const rank = g.rank ?? -1;
+            const isOpen = open === rank;
+            return (
+              <Fragment key={rank}>
+                <tr className={"guide-row" + (selectedRanks.has(rank) ? " selected" : "") + (isOpen ? " open" : "")}>
+                  <td className="rank">
+                    {/* A real button, not a click handler on the <tr>: the row held
+                        the entire drill-down — off-targets, sequence context,
+                        constraint checks — and none of it was reachable by keyboard. */}
+                    <button
+                      type="button"
+                      className="row-caret-btn"
+                      aria-expanded={isOpen}
+                      aria-controls={`guide-detail-${rank}`}
+                      onClick={() => setOpen(isOpen ? null : rank)}
+                    >
+                      <span className="row-caret" aria-hidden="true">{isOpen ? "▾" : "▸"}</span>
+                      <span className="sr-only">
+                        {isOpen ? "Hide" : "Show"} off-targets and sequence context for guide {g.rank}
+                      </span>
+                    </button>
+                    {g.rank}
+                    {selectedRanks.has(rank) && <PassMark label="selected by the compiler" />}
                   </td>
+                  <td className="seq">{g.spacer}</td>
+                  <td className="seq">{g.pam}</td>
+                  <td className="num">{g.strand}</td>
+                  <td>
+                    <Metric value={g.on_target_score} />
+                  </td>
+                  <td className="num">{g.off_target.max_cfd.toFixed(2)}</td>
+                  <td>{outcomeCell(g, modality)}</td>
+                  <td className="num">{g.composite_score.toFixed(3)}</td>
                 </tr>
-              )}
-            </Fragment>
-          );
-        })}
-      </tbody>
-    </table>
+                {isOpen && (
+                  <tr className="detail-row" id={`guide-detail-${rank}`}>
+                    <td colSpan={8}>
+                      <GuideDetail g={g} sequence={sequence} />
+                    </td>
+                  </tr>
+                )}
+              </Fragment>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 }

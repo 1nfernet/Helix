@@ -48,6 +48,7 @@ export function AnalyzeCard({ design }: { design: ResolvedDesign }) {
       </div>
       <textarea
         className="code reads-input"
+        aria-label="Amplicon reads"
         spellCheck={false}
         placeholder="Paste amplicon reads — FASTQ, FASTA, or one sequence per line"
         value={reads}
@@ -59,7 +60,7 @@ export function AnalyzeCard({ design }: { design: ResolvedDesign }) {
         </button>
         <span className="hint">observed vs predicted</span>
       </div>
-      {err && <div className="note">{err}</div>}
+      {err && <div className="note" role="alert">{err}</div>}
 
       {a && r && (
         <div className="analysis-out">

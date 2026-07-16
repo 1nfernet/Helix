@@ -79,9 +79,14 @@ export function AiPanel({
       <div className="ai-head">
         <span className="section-label">AI assist</span>
         {demo && <span className="ai-demo-tag" title="No ANTHROPIC_API_KEY set — replies are canned, not from a model">demo</span>}
-        <div className="seg small">
+        <div className="seg small" role="group" aria-label="Model">
           {MODELS.map((m) => (
-            <button key={m.id} className={model === m.id ? "active" : ""} onClick={() => setModel(m.id)}>
+            <button
+              key={m.id}
+              aria-pressed={model === m.id}
+              className={model === m.id ? "active" : ""}
+              onClick={() => setModel(m.id)}
+            >
               {m.label}
             </button>
           ))}
@@ -91,6 +96,7 @@ export function AiPanel({
       <div className="ai-row">
         <input
           className="ai-input"
+          aria-label="Describe the edit to draft"
           placeholder="Describe an edit — e.g. “base-edit C→T in TP53, HEK293T, avoid BsaI”"
           value={request}
           onChange={(e) => setRequest(e.target.value)}
@@ -119,7 +125,7 @@ export function AiPanel({
         </div>
       )}
 
-      {err && <div className="note">{err}</div>}
+      {err && <div className="note" role="alert">{err}</div>}
 
       {crit && (
         <div className="critique">

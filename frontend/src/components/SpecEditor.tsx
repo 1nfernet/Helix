@@ -70,13 +70,13 @@ export function SpecEditor(props: Props) {
   return (
     <section className="panel">
       <div className="panel-head">
-        <h2>Spec</h2>
+        <h3>Spec</h3>
         <span className="grow" />
-        <div className="seg" role="tablist" aria-label="format">
-          <button className={format === "helix" ? "active" : ""} onClick={() => onFormatChange("helix")}>
+        <div className="seg" role="group" aria-label="Spec format">
+          <button aria-pressed={format === "helix"} className={format === "helix" ? "active" : ""} onClick={() => onFormatChange("helix")}>
             Helix
           </button>
-          <button className={format === "yaml" ? "active" : ""} onClick={() => onFormatChange("yaml")}>
+          <button aria-pressed={format === "yaml"} className={format === "yaml" ? "active" : ""} onClick={() => onFormatChange("yaml")}>
             YAML
           </button>
         </div>

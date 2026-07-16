@@ -12,7 +12,7 @@ export function BatchEditor({ examples, selected, onToggle, onCompile, loading }
   return (
     <section className="panel">
       <div className="panel-head">
-        <h2>Batch</h2>
+        <h3>Batch</h3>
       </div>
       <div className="panel-body">
         <p className="hint" style={{ marginTop: 0 }}>

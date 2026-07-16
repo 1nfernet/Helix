@@ -22,13 +22,13 @@ export function LibraryEditor(props: Props) {
   return (
     <section className="panel">
       <div className="panel-head">
-        <h2>Library</h2>
+        <h3>Library</h3>
         <span className="grow" />
-        <div className="seg" role="tablist" aria-label="format">
-          <button className={format === "helix" ? "active" : ""} onClick={() => onFormatChange("helix")}>
+        <div className="seg" role="group" aria-label="Spec format">
+          <button aria-pressed={format === "helix"} className={format === "helix" ? "active" : ""} onClick={() => onFormatChange("helix")}>
             Helix
           </button>
-          <button className={format === "yaml" ? "active" : ""} onClick={() => onFormatChange("yaml")}>
+          <button aria-pressed={format === "yaml"} className={format === "yaml" ? "active" : ""} onClick={() => onFormatChange("yaml")}>
             YAML
           </button>
         </div>
@@ -41,7 +41,9 @@ export function LibraryEditor(props: Props) {
           network access.
         </p>
 
-        <div className="field-label">Base spec</div>
+        <label className="field-label" htmlFor="lib-source">
+          Base spec
+        </label>
         <select
           value={baseIndex}
           onChange={(e) => onSelectBase(Number(e.target.value))}
@@ -58,6 +60,7 @@ export function LibraryEditor(props: Props) {
           ))}
         </select>
         <textarea
+          id="lib-source"
           className="code"
           style={{ minHeight: 180 }}
           spellCheck={false}
@@ -65,10 +68,11 @@ export function LibraryEditor(props: Props) {
           onChange={(e) => onSourceChange(e.target.value)}
         />
 
-        <div className="field-label" style={{ marginTop: 14 }}>
+        <label className="field-label" htmlFor="lib-genes" style={{ marginTop: 14, display: "block" }}>
           Genes
-        </div>
+        </label>
         <textarea
+          id="lib-genes"
           className="code genes"
           spellCheck={false}
           placeholder="TP53, EGFR, KRAS, BRCA1"

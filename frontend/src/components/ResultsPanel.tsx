@@ -1,6 +1,7 @@
 import { lazy, Suspense, useMemo, useState } from "react";
 import type { ApiError, CompileResult, ResolvedDesign } from "../types";
 import type { PickMods } from "./DnaHelix";
+import { BASE_HEX, BASES } from "../palette";
 import { Badge } from "./Badge";
 import { AnalyzeCard } from "./AnalyzeCard";
 import { DeletionCard } from "./DeletionCard";
@@ -79,12 +80,6 @@ function siteFor(d: ResolvedDesign): { highlight?: { start: number; end: number 
   return {};
 }
 
-const LEGEND: [string, string][] = [
-  ["A", "#4a7a53"],
-  ["T", "#c96442"],
-  ["G", "#3f6fb0"],
-  ["C", "#c79a3a"],
-];
 
 function DesignView({
   result,
@@ -140,13 +135,13 @@ function DesignView({
     : "click to place the edit · drag to sweep · shift-click to change the edited base";
 
   // Result tabs available for this design; keep a valid one selected.
-  const availableTabs: Section[] = [
-    "guides",
-    ...(d.delivery ? (["delivery"] as Section[]) : []),
-    ...(d.target ? (["order"] as Section[]) : []),
-    ...(d.target && !isReg ? (["analyze"] as Section[]) : []),
+  const tabs: { id: Section; label: string }[] = [
+    { id: "guides", label: isPrime ? "pegRNAs" : "Guides" },
+    ...(d.delivery ? [{ id: "delivery" as Section, label: "Delivery" }] : []),
+    ...(d.target ? [{ id: "order" as Section, label: "Order" }] : []),
+    ...(d.target && !isReg ? [{ id: "analyze" as Section, label: "Analyze" }] : []),
   ];
-  const activeTab = availableTabs.includes(tab) ? tab : "guides";
+  const activeTab = tabs.some((t) => t.id === tab) ? tab : "guides";
 
   return (
     <>
@@ -154,7 +149,7 @@ function DesignView({
 
       {!d.safety.allowed &&
         d.safety.reasons.map((r, i) => (
-          <div key={i} className="error-card" style={{ marginBottom: 12 }}>
+          <div key={i} className="error-card" role="alert" style={{ marginBottom: 12 }}>
             <div className="etype">safety</div>
             <pre>{r}</pre>
           </div>
@@ -168,29 +163,36 @@ function DesignView({
 
       {d.safety.allowed && (
         <>
-          <div className="rtabs" role="tablist">
-            <button className={activeTab === "guides" ? "active" : ""} onClick={() => setTab("guides")}>
-              {isPrime ? "pegRNAs" : "Guides"}
-            </button>
-            {d.delivery && (
-              <button className={activeTab === "delivery" ? "active" : ""} onClick={() => setTab("delivery")}>
-                Delivery
+          <div className="rtabs" role="tablist" aria-label="Design sections">
+            {tabs.map((t, i) => (
+              <button
+                key={t.id}
+                role="tab"
+                id={`rtab-${t.id}`}
+                aria-selected={activeTab === t.id}
+                aria-controls={`rpanel-${t.id}`}
+                // Roving tabindex: the tablist is one Tab stop; arrows move between
+                // tabs inside it. Tabbing through every section would bury the
+                // content the sections exist to reveal.
+                tabIndex={activeTab === t.id ? 0 : -1}
+                className={activeTab === t.id ? "active" : ""}
+                onClick={() => setTab(t.id)}
+                onKeyDown={(e) => {
+                  const d2 = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+                  if (!d2) return;
+                  e.preventDefault();
+                  const next = tabs[(i + d2 + tabs.length) % tabs.length];
+                  setTab(next.id);
+                  document.getElementById(`rtab-${next.id}`)?.focus();
+                }}
+              >
+                {t.label}
               </button>
-            )}
-            {d.target && (
-              <button className={activeTab === "order" ? "active" : ""} onClick={() => setTab("order")}>
-                Order
-              </button>
-            )}
-            {d.target && !isReg && (
-              <button className={activeTab === "analyze" ? "active" : ""} onClick={() => setTab("analyze")}>
-                Analyze
-              </button>
-            )}
+            ))}
           </div>
 
           {activeTab === "guides" && (
-            <>
+            <div role="tabpanel" id="rpanel-guides" aria-labelledby="rtab-guides">
               <div className="results-head">
                 <div className="section-label">
                   {isHdr
@@ -205,16 +207,19 @@ function DesignView({
                             ? "pegRNA candidates"
                             : "Guides"}
                 </div>
-                <div className="seg small">
-                  <button className={view === "table" ? "active" : ""} onClick={() => setView("table")}>
+                {/* A .seg is a set of pressed toggles, not a tablist: these swap how
+                    the same guides are drawn, they don't move you to another section.
+                    That split (.rtabs = tabs, .seg = toggles) holds app-wide. */}
+                <div className="seg small" role="group" aria-label="Guide view">
+                  <button aria-pressed={view === "table"} className={view === "table" ? "active" : ""} onClick={() => setView("table")}>
                     Table
                   </button>
                   {hasHelix && (
-                    <button className={view === "helix" ? "active" : ""} onClick={() => setView("helix")}>
+                    <button aria-pressed={view === "helix"} className={view === "helix" ? "active" : ""} onClick={() => setView("helix")}>
                       Helix
                     </button>
                   )}
-                  <button className={view === "complex" ? "active" : ""} onClick={() => setView("complex")}>
+                  <button aria-pressed={view === "complex"} className={view === "complex" ? "active" : ""} onClick={() => setView("complex")}>
                     Complex
                   </button>
                 </div>
@@ -222,7 +227,7 @@ function DesignView({
 
               {view === "helix" && hasHelix ? (
                 <>
-                  <Suspense fallback={<div className="helix-wrap" />}>
+                  <Suspense fallback={<div className="helix-wrap viewer-loading">Loading 3D viewer…</div>}>
                     <DnaHelix
                       sequence={d.target!.sequence}
                       highlight={site.highlight}
@@ -233,9 +238,9 @@ function DesignView({
                     />
                   </Suspense>
                   <div className="helix-legend">
-                    {LEGEND.map(([b, c]) => (
+                    {BASES.map((b) => (
                       <span key={b}>
-                        <i style={{ background: c }} />
+                        <i aria-hidden="true" style={{ background: BASE_HEX[b] }} />
                         {b}
                       </span>
                     ))}
@@ -246,7 +251,7 @@ function DesignView({
                   </div>
                 </>
               ) : view === "complex" ? (
-                <Suspense fallback={<div className="helix-wrap" />}>
+                <Suspense fallback={<div className="helix-wrap viewer-loading">Loading 3D viewer…</div>}>
                   <ComplexViewer design={d} />
                 </Suspense>
               ) : isPrime ? (
@@ -262,12 +267,24 @@ function DesignView({
 
               {isHdr && donorGuide?.hdr && <DonorCard d={donorGuide.hdr} />}
               {isDeletion && d.deletion && <DeletionCard d={d.deletion} />}
-            </>
+            </div>
           )}
 
-          {activeTab === "delivery" && d.delivery && <DeliveryCard d={d.delivery} />}
-          {activeTab === "order" && d.target && <OrderCard design={d} />}
-          {activeTab === "analyze" && d.target && !isReg && <AnalyzeCard design={d} />}
+          {activeTab === "delivery" && d.delivery && (
+            <div role="tabpanel" id="rpanel-delivery" aria-labelledby="rtab-delivery">
+              <DeliveryCard d={d.delivery} />
+            </div>
+          )}
+          {activeTab === "order" && d.target && (
+            <div role="tabpanel" id="rpanel-order" aria-labelledby="rtab-order">
+              <OrderCard design={d} />
+            </div>
+          )}
+          {activeTab === "analyze" && d.target && !isReg && (
+            <div role="tabpanel" id="rpanel-analyze" aria-labelledby="rtab-analyze">
+              <AnalyzeCard design={d} />
+            </div>
+          )}
         </>
       )}
 
@@ -293,6 +310,41 @@ function DesignView({
   );
 }
 
+/** First-run state for the results panel: teaches the spec → compile → inspect
+ * flow rather than leaving a bare "nothing here" message in a tall panel. */
+function DesignEmpty() {
+  const steps: [string, string][] = [
+    ["Write or load a spec", "Helix grammar or YAML — start from an example on the left"],
+    ["Compile", "the deterministic compiler resolves guides, feasibility, and safety"],
+    ["Inspect the design", "ranked guides, delivery, order-ready oligos, and the 3D helix"],
+  ];
+  return (
+    <div className="empty design-empty">
+      <span className="de-mark" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M7 3c0 5 10 6 10 9s-10 4-10 9" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
+          <path d="M17 3c0 5-10 6-10 9s10 4 10 9" stroke="var(--text-muted)" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </span>
+      <div className="big">No design yet</div>
+      <p className="de-sub">
+        Compose a spec and compile it into a full, provenance-stamped design you can diff, version, and re-run.
+      </p>
+      <ol className="de-steps">
+        {steps.map(([label, hint], i) => (
+          <li key={label}>
+            <span className="de-n">{i + 1}</span>
+            <span className="de-txt">
+              <b>{label}</b>
+              <span>{hint}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 export function ResultsPanel({
   result,
   error,
@@ -309,26 +361,26 @@ export function ResultsPanel({
   return (
     <section className="panel">
       <div className="panel-head">
-        <h2>Design</h2>
+        <h3>Design</h3>
       </div>
-      <div className="panel-body">
+      {/* Compiling is the app's central async event and it happens off-screen for
+          anyone not watching this panel: announce the outcome instead of silently
+          swapping the body. Polite, so it waits for the user to stop typing. */}
+      <div className="panel-body" aria-live="polite" aria-busy={loading}>
         {loading ? (
           <div className="empty">
-            <span className="spinner" />
+            <span className="spinner" aria-hidden="true" />
             <div style={{ marginTop: 12 }}>Compiling…</div>
           </div>
         ) : error ? (
-          <div className="error-card">
+          <div className="error-card" role="alert">
             <div className="etype">{error.type} error</div>
             <pre>{error.message}</pre>
           </div>
         ) : result ? (
           <DesignView result={result} view={view} setView={setView} tab={tab} setTab={setTab} onPickBase={onPickBase} />
         ) : (
-          <div className="empty">
-            <div className="big">No design yet</div>
-            Write or load a spec, then press Compile.
-          </div>
+          <DesignEmpty />
         )}
       </div>
     </section>

@@ -105,8 +105,22 @@ export function CodeEditor({
     if (gutRef.current) gutRef.current.scrollTop = ta.scrollTop;
   };
 
+  // Tab indents rather than moving focus, which is what you want in an editor and
+  // is also a keyboard trap: without a way out, a keyboard user who lands here can
+  // never reach Compile. Escape arms the next Tab to behave normally (the standard
+  // escape hatch), and any other key disarms it again.
+  const escaped = useRef(false);
+
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Escape") {
+      escaped.current = true;
+      return;
+    }
     if (e.key === "Tab") {
+      if (escaped.current) {
+        escaped.current = false;
+        return; // let the browser move focus out of the editor
+      }
       e.preventDefault();
       const ta = e.currentTarget;
       const s = ta.selectionStart;
@@ -114,7 +128,9 @@ export function CodeEditor({
       const next = value.slice(0, s) + "  " + value.slice(end);
       onChange(next);
       requestAnimationFrame(() => ta.setSelectionRange(s + 2, s + 2));
+      return;
     }
+    escaped.current = false;
   };
 
   return (
@@ -127,6 +143,8 @@ export function CodeEditor({
         <textarea
           ref={taRef}
           className="code-input"
+          aria-label="Spec source"
+          aria-describedby="code-editor-help"
           wrap="off"
           spellCheck={false}
           value={value}
@@ -136,6 +154,9 @@ export function CodeEditor({
           onKeyDown={onKeyDown}
         />
       </div>
+      <span id="code-editor-help" className="sr-only">
+        Tab inserts two spaces. Press Escape then Tab to move focus out of the editor.
+      </span>
     </div>
   );
 }
