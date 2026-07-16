@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" font-family="'Nunito', 'Varela Round', 'Segoe UI', Inter, system-ui, -apple-system, sans-serif">
   <defs>
     <marker id="ah" markerWidth="12" markerHeight="12" refX="6.5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#322e4a"/></marker>
-    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.4" fill="#6c63f0" stroke="#322e4a" stroke-width="1.7"/><path d="M3.6 21.5c0-4.9 3.7-7.7 8.4-7.7s8.4 2.8 8.4 7.7z" fill="#6c63f0" stroke="#322e4a" stroke-width="1.7" stroke-linejoin="round"/></symbol>
-    <symbol id="i-robot" viewBox="0 0 24 24"><line x1="12" y1="1.3" x2="12" y2="4.8" stroke="#322e4a" stroke-width="2.1"/><circle cx="12" cy="1.6" r="1.8" fill="#6c63f0" stroke="#322e4a" stroke-width="1.3"/><rect x="3" y="4.8" width="18" height="14.4" rx="5.2" fill="#6c63f0" stroke="#322e4a" stroke-width="1.9"/><circle cx="8.6" cy="11" r="2.1" fill="#fff" stroke="#322e4a" stroke-width="1.3"/><circle cx="15.4" cy="11" r="2.1" fill="#fff" stroke="#322e4a" stroke-width="1.3"/><path d="M8.7 15q3.3 2.2 6.6 0" fill="none" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.4" fill="#5b53e0" stroke="#322e4a" stroke-width="1.7"/><path d="M3.6 21.5c0-4.9 3.7-7.7 8.4-7.7s8.4 2.8 8.4 7.7z" fill="#5b53e0" stroke="#322e4a" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-robot" viewBox="0 0 24 24"><line x1="12" y1="1.3" x2="12" y2="4.8" stroke="#322e4a" stroke-width="2.1"/><circle cx="12" cy="1.6" r="1.8" fill="#5b53e0" stroke="#322e4a" stroke-width="1.3"/><rect x="3" y="4.8" width="18" height="14.4" rx="5.2" fill="#5b53e0" stroke="#322e4a" stroke-width="1.9"/><circle cx="8.6" cy="11" r="2.1" fill="#fff" stroke="#322e4a" stroke-width="1.3"/><circle cx="15.4" cy="11" r="2.1" fill="#fff" stroke="#322e4a" stroke-width="1.3"/><path d="M8.7 15q3.3 2.2 6.6 0" fill="none" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-doc" viewBox="0 0 24 24"><path d="M5.5 2.5h8.5l5 5v13.5a1.6 1.6 0 0 1-1.6 1.6H5.5a1.6 1.6 0 0 1-1.6-1.6V4.1A1.6 1.6 0 0 1 5.5 2.5z" fill="#fff" stroke="#322e4a" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2.5v5h5" fill="none" stroke="#322e4a" stroke-width="1.8" stroke-linejoin="round"/><line x1="8.5" y1="12.5" x2="15.5" y2="12.5" stroke="#8b83e6" stroke-width="1.9" stroke-linecap="round"/><line x1="8.5" y1="16" x2="15.5" y2="16" stroke="#8b83e6" stroke-width="1.9" stroke-linecap="round"/><line x1="8.5" y1="19.5" x2="12.5" y2="19.5" stroke="#c6c1ef" stroke-width="1.9" stroke-linecap="round"/></symbol>
     <symbol id="i-db" viewBox="0 0 24 24"><path d="M4 6v12c0 1.9 3.6 3.2 8 3.2s8-1.3 8-3.2V6" fill="#1cbd96" stroke="#322e4a" stroke-width="1.8" stroke-linejoin="round"/><ellipse cx="12" cy="6" rx="8" ry="3.2" fill="#3ad3ac" stroke="#322e4a" stroke-width="1.8"/><path d="M4 12c0 1.9 3.6 3.2 8 3.2s8-1.3 8-3.2" fill="none" stroke="#322e4a" stroke-width="1.4"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.6" fill="#1cbd96" stroke="#322e4a" stroke-width="1.9"/><path d="M7.5 12.4l2.9 2.9 5.9-6.3" fill="none" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-chart" viewBox="0 0 24 24"><rect x="2.4" y="12.5" width="5.1" height="8.6" rx="1.8" fill="#6c63f0" stroke="#322e4a" stroke-width="1.6"/><rect x="9.4" y="7.4" width="5.1" height="13.7" rx="1.8" fill="#1cbd96" stroke="#322e4a" stroke-width="1.6"/><rect x="16.4" y="3.4" width="5.1" height="17.7" rx="1.8" fill="#f4b636" stroke="#322e4a" stroke-width="1.6"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><rect x="2.4" y="12.5" width="5.1" height="8.6" rx="1.8" fill="#5b53e0" stroke="#322e4a" stroke-width="1.6"/><rect x="9.4" y="7.4" width="5.1" height="13.7" rx="1.8" fill="#1cbd96" stroke="#322e4a" stroke-width="1.6"/><rect x="16.4" y="3.4" width="5.1" height="17.7" rx="1.8" fill="#f4b636" stroke="#322e4a" stroke-width="1.6"/></symbol>
     <symbol id="i-code" viewBox="0 0 24 24"><rect x="1.8" y="3.4" width="20.4" height="17.2" rx="4" fill="#f3f2fc" stroke="#322e4a" stroke-width="1.8"/><path d="M1.8 7.2a3.8 3.8 0 0 1 3.8-3.8h12.8a3.8 3.8 0 0 1 3.8 3.8v0.9H1.8z" fill="#e7e3f8"/><line x1="1.8" y1="8.1" x2="22.2" y2="8.1" stroke="#322e4a" stroke-width="1.3"/><circle cx="5.4" cy="5.8" r="1" fill="#8b83e6"/><circle cx="8" cy="5.8" r="1" fill="#1cbd96"/><circle cx="10.6" cy="5.8" r="1" fill="#f4b636"/><line x1="5.4" y1="12" x2="12" y2="12" stroke="#8b83e6" stroke-width="1.9" stroke-linecap="round"/><line x1="5.4" y1="15" x2="17.2" y2="15" stroke="#1cbd96" stroke-width="1.9" stroke-linecap="round"/><line x1="5.4" y1="18" x2="12.6" y2="18" stroke="#f4b636" stroke-width="1.9" stroke-linecap="round"/></symbol>
-    <symbol id="i-dna" viewBox="0 0 24 24"><path d="M7.5 2.5c0 5.6 9 6.4 9 9.5s-9 3.9-9 9.5" fill="none" stroke="#6c63f0" stroke-width="2.8" stroke-linecap="round"/><path d="M16.5 2.5c0 5.6-9 6.4-9 9.5s9 3.9 9 9.5" fill="none" stroke="#1cbd96" stroke-width="2.8" stroke-linecap="round"/><line x1="9" y1="6.4" x2="15" y2="6.4" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="17.6" x2="15" y2="17.6" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/></symbol>
-    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.4" fill="#fff" stroke="#322e4a" stroke-width="1.9"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#6c63f0" stroke-width="2.4"/><circle cx="12" cy="12" r="2" fill="#6c63f0" stroke="#322e4a" stroke-width="1.2"/></symbol>
+    <symbol id="i-dna" viewBox="0 0 24 24"><path d="M7.5 2.5c0 5.6 9 6.4 9 9.5s-9 3.9-9 9.5" fill="none" stroke="#5b53e0" stroke-width="2.8" stroke-linecap="round"/><path d="M16.5 2.5c0 5.6-9 6.4-9 9.5s9 3.9 9 9.5" fill="none" stroke="#1cbd96" stroke-width="2.8" stroke-linecap="round"/><line x1="9" y1="6.4" x2="15" y2="6.4" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="17.6" x2="15" y2="17.6" stroke="#322e4a" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.4" fill="#fff" stroke="#322e4a" stroke-width="1.9"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#5b53e0" stroke-width="2.4"/><circle cx="12" cy="12" r="2" fill="#5b53e0" stroke="#322e4a" stroke-width="1.2"/></symbol>
     <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.3l8.8 4.9v9.6L12 21.9 3.2 16.8V7.2z" fill="#c8ecdf" stroke="#322e4a" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 12.2v9.7M3.2 7.2L12 12.2l8.8-5" fill="none" stroke="#322e4a" stroke-width="1.5" stroke-linejoin="round"/></symbol>
     <symbol id="i-plan" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="#e7e3fb" stroke="#322e4a" stroke-width="1.9"/><path d="M7.4 12l2.9 2.9 6-6.3" fill="none" stroke="#322e4a" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <linearGradient id="gb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eeecff"/><stop offset="1" stop-color="#e2e0fb"/></linearGradient>
@@ -23,7 +23,7 @@
 
   <!-- ========== STAGE 1 — AUTHOR ========== -->
   <rect x="24" y="20" width="352" height="404" rx="24" fill="url(#gb1)" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
-  <text x="200" y="58" text-anchor="middle" font-size="18" font-weight="800" fill="#4a3fd0">1 · Author &amp; review</text>
+  <text x="200" y="58" text-anchor="middle" font-size="18" font-weight="800" fill="#4840c4">1 · Author &amp; review</text>
   <use href="#i-user" x="118" y="76" width="38" height="38"/>
   <text x="278" y="70" font-size="13" font-weight="700" fill="#4a4658">or</text>
   <use href="#i-robot" x="228" y="76" width="38" height="38"/>
@@ -34,33 +34,33 @@
   <text x="200" y="183" text-anchor="middle" font-size="12.5" font-weight="600" fill="#2b2740">3 guides, avoid BsaI</text>
   <line x1="200" y1="206" x2="200" y2="240" stroke="#322e4a" stroke-width="2.6" stroke-linecap="round" marker-end="url(#ah)"/>
   <use href="#i-doc" x="176" y="252" width="48" height="54"/>
-  <text x="200" y="330" text-anchor="middle" font-size="15" font-weight="800" fill="#4a3fd0">Helix spec</text>
+  <text x="200" y="330" text-anchor="middle" font-size="15" font-weight="800" fill="#4840c4">Helix spec</text>
   <text x="200" y="352" text-anchor="middle" font-size="11.5" font-weight="600" fill="#6c7180">a reviewable .hx / YAML file</text>
-  <text x="200" y="398" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5b52c4">CLI&#160;&#160;·&#160;&#160;Web UI&#160;&#160;·&#160;&#160;MCP (agents)</text>
+  <text x="200" y="398" text-anchor="middle" font-size="12.5" font-weight="700" fill="#4840c4">CLI&#160;&#160;·&#160;&#160;Web UI&#160;&#160;·&#160;&#160;MCP (agents)</text>
 
   <line x1="378" y1="222" x2="416" y2="222" stroke="#322e4a" stroke-width="3" stroke-linecap="round" marker-end="url(#ah)"/>
 
   <!-- ========== STAGE 2 — COMPILE ========== -->
   <rect x="424" y="20" width="352" height="404" rx="24" fill="url(#gb2)" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
-  <text x="600" y="58" text-anchor="middle" font-size="18" font-weight="800" fill="#b57414">2 · Deterministic compiler</text>
-  <g font-size="12.5" font-weight="700" fill="#4034b8" text-anchor="middle">
-    <rect x="452" y="80" width="296" height="30" rx="10" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="100">safety screen</text>
-    <rect x="452" y="116" width="296" height="30" rx="10" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="136">strategy · enzyme</text>
-    <rect x="452" y="152" width="296" height="30" rx="10" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="172">target · window</text>
-    <rect x="452" y="188" width="296" height="30" rx="10" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="208">guide design</text>
-    <rect x="452" y="224" width="296" height="30" rx="10" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="244">simulate · score</text>
-    <rect x="452" y="260" width="296" height="30" rx="10" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="280">constraints · rank</text>
-    <rect x="452" y="296" width="296" height="30" rx="10" fill="#e9e6fb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="316">delivery · primers</text>
+  <text x="600" y="58" text-anchor="middle" font-size="18" font-weight="800" fill="#8a6011">2 · Deterministic compiler</text>
+  <g font-size="12.5" font-weight="700" fill="#4840c4" text-anchor="middle">
+    <rect x="452" y="80" width="296" height="30" rx="10" fill="#ecebfb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="100">safety screen</text>
+    <rect x="452" y="116" width="296" height="30" rx="10" fill="#ecebfb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="136">strategy · enzyme</text>
+    <rect x="452" y="152" width="296" height="30" rx="10" fill="#ecebfb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="172">target · window</text>
+    <rect x="452" y="188" width="296" height="30" rx="10" fill="#ecebfb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="208">guide design</text>
+    <rect x="452" y="224" width="296" height="30" rx="10" fill="#ecebfb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="244">simulate · score</text>
+    <rect x="452" y="260" width="296" height="30" rx="10" fill="#ecebfb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="280">constraints · rank</text>
+    <rect x="452" y="296" width="296" height="30" rx="10" fill="#ecebfb" stroke="#322e4a" stroke-width="1.6"/><text x="600" y="316">delivery · primers</text>
   </g>
-  <text x="600" y="352" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a67a26">solves your constraints · reports infeasibility</text>
-  <text x="600" y="392" text-anchor="middle" font-size="12" font-weight="700" fill="#8a6a12">🔒 agents only edit the spec —</text>
-  <text x="600" y="410" text-anchor="middle" font-size="12" font-weight="700" fill="#8a6a12">the compiler owns the design</text>
+  <text x="600" y="352" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8a6011">solves your constraints · reports infeasibility</text>
+  <text x="600" y="392" text-anchor="middle" font-size="12" font-weight="700" fill="#8a6011">🔒 agents only edit the spec —</text>
+  <text x="600" y="410" text-anchor="middle" font-size="12" font-weight="700" fill="#8a6011">the compiler owns the design</text>
 
   <line x1="778" y1="222" x2="816" y2="222" stroke="#322e4a" stroke-width="3" stroke-linecap="round" marker-end="url(#ah)"/>
 
   <!-- ========== STAGE 3 — DESIGN ========== -->
   <rect x="824" y="20" width="352" height="404" rx="24" fill="url(#gb3)" stroke="#322e4a" stroke-width="2.6" filter="url(#soft)"/>
-  <text x="1000" y="58" text-anchor="middle" font-size="18" font-weight="800" fill="#0c7c5f">3 · Verified design</text>
+  <text x="1000" y="58" text-anchor="middle" font-size="18" font-weight="800" fill="#0b7a5d">3 · Verified design</text>
   <g font-size="13" font-weight="600" fill="#2e5d4d">
     <use href="#i-chart" x="856" y="86" width="30" height="30"/><text x="898" y="106">ranked guides / pegRNAs</text>
     <use href="#i-target" x="856" y="130" width="30" height="30"/><text x="898" y="150">off-target report</text>
@@ -69,7 +69,7 @@
     <use href="#i-check" x="856" y="266" width="30" height="30"/><text x="898" y="286">safety verdict</text>
     <use href="#i-code" x="857" y="310" width="30" height="26"/><text x="898" y="330">design.json + provenance</text>
   </g>
-  <text x="1000" y="374" text-anchor="middle" font-size="12" font-weight="700" fill="#0c7c5f">reproducible · auditable · order-ready</text>
+  <text x="1000" y="374" text-anchor="middle" font-size="12" font-weight="700" fill="#0b7a5d">reproducible · auditable · order-ready</text>
   <text x="1000" y="404" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2f8f74">diff &amp; version it in git · re-run anytime</text>
 
   <!-- feeds arrow from backends up into the compiler -->

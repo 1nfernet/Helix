@@ -9,7 +9,7 @@
 [![PyPI](https://img.shields.io/pypi/v/helix-dsl?color=5b53e0&label=pypi)](https://pypi.org/project/helix-dsl/)
 [![License](https://img.shields.io/github/license/coindef/Helix?color=5b53e0)](https://github.com/coindef/Helix/blob/main/LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%2B-5b53e0)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-231%20passing-0f9271)](https://github.com/coindef/Helix/tree/main/tests)
+[![Tests](https://img.shields.io/badge/tests-231%20passing-0b7a5d)](https://github.com/coindef/Helix/tree/main/tests)
 [![MCP](https://img.shields.io/badge/MCP-server-5b53e0)](#mcp-server)
 
 [Quickstart](#quickstart) · [Highlights](#highlights) · [The language](#the-language) · [Architecture](#architecture) · [MCP server](#mcp-server) · [Deep dive](https://github.com/coindef/Helix/blob/main/ARCHITECTURE.md)
@@ -39,7 +39,7 @@ diff, version, review, and re-run.
 - 🧪 **Variant-aware guides** — flags common population SNPs in the seed/PAM (a SNP there abolishes binding in carriers).
 - 🔌 **Injectable backends** — swap a heuristic for a real tool (Cas-OFFinder, inDelphi, BE-Hive, PRIDICT, Ensembl/NCBI, ESMFold) by editing the spec, *not* the code.
 - 🤖 **MCP server + LLM agents** — any agent can drive the compiler through the spec → compile boundary.
-- 🖥️ **Web UI** — syntax-highlighting editor, interactive 3D helix, order-ready oligos, and results analysis.
+- 🖥️ **Web UI** — syntax-highlighting editor, interactive 3D helix, order-ready oligos, and results analysis — keyboard-navigable throughout, to **WCAG 2.1 AA**.
 - ♻️ **Reproducible & auditable** — every design is provenance-stamped; diff and version it in git.
 
 ## Quickstart
@@ -153,6 +153,10 @@ and a delivery recommendation, in three views (**Table · 3D helix · Cas9 compl
 helix is **interactive**: click a base to place an edit, drag to sweep it, and the compiler
 recompiles (a 3D → spec round-trip). **Batch** and **Library** modes, a **design compare**,
 a design-aware **Models** page, and a server-persisted **run history** round it out.
+
+Built to **WCAG 2.1 AA**: every result is keyboard-reachable — including the 3D helix, where
+arrow keys move a base cursor and Enter places the edit — no status is carried by colour
+alone, and `prefers-reduced-motion` stops the viewers spinning.
 
 ```bash
 # One-command product: build the UI once, then serve UI + API on one origin.
