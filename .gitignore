@@ -18,4 +18,6 @@ frontend/dist/
 .vscode/
 .claude/
 .impeccable/
+.agents/
+skills-lock.json
 *.log

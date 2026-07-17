@@ -35,14 +35,14 @@ computational biologist tuning constraints work from the same reviewable artifac
 
 ## Highlights
 
-- 🧬 **8 modalities** — knockout · base editing (CBE/ABE/CGBE) · prime editing · HDR knock-in · dual-cut deletion · CRISPRi / CRISPRa.
-- 🎯 **Constraints are first-class** — the compiler *solves* against them and reports infeasibility, instead of silently returning "the top N".
-- 🔬 **Protein-consequence aware** — every coding edit is called *silent · missense · premature-STOP (iSTOP) · stop-loss · frameshift*, with **guaranteed-synonymous** HDR PAM-blocks.
-- 🧪 **Variant-aware guides** — flags common population SNPs in the seed/PAM (a SNP there abolishes binding in carriers).
-- 🔌 **Injectable backends** — swap a heuristic for a real tool (Cas-OFFinder, inDelphi, BE-Hive, PRIDICT, Ensembl/NCBI, ESMFold) by editing the spec, *not* the code.
-- 🤖 **MCP server + LLM agents** — any agent can drive the compiler through the spec → compile boundary.
-- 🖥️ **Web UI** — syntax-highlighting editor, interactive 3D helix, order-ready oligos, and results analysis; keyboard-navigable throughout.
-- ♻️ **Reproducible & auditable** — every design is provenance-stamped; diff and version it in git.
+- **8 modalities** — knockout · base editing (CBE/ABE/CGBE) · prime editing · HDR knock-in · dual-cut deletion · CRISPRi / CRISPRa.
+- **Constraints are first-class** — the compiler *solves* against them and reports infeasibility, instead of silently returning "the top N".
+- **Protein-consequence aware** — every coding edit is called *silent · missense · premature-STOP (iSTOP) · stop-loss · frameshift*, with **guaranteed-synonymous** HDR PAM-blocks.
+- **Variant-aware guides** — flags common population SNPs in the seed/PAM (a SNP there abolishes binding in carriers).
+- **Injectable backends** — swap a heuristic for a real tool (Cas-OFFinder, inDelphi, BE-Hive, PRIDICT, Ensembl/NCBI, ESMFold) by editing the spec, *not* the code.
+- **MCP server + LLM agents** — any agent can drive the compiler through the spec → compile boundary.
+- **Web UI** — syntax-highlighting editor, interactive 3D helix, order-ready oligos, and results analysis; keyboard-navigable throughout.
+- **Reproducible & auditable** — every design is provenance-stamped; diff and version it in git.
 
 ## Quickstart
 
@@ -135,13 +135,13 @@ is a drop-in target for a real tool behind the **same Protocol** — selected by
 
 | role | built-in | real tool (same interface) | status |
 |---|---|---|---|
-| sequence | `inline` | **`ensembl`**, **`ncbi`**, **`fallback`** (Ensembl→NCBI) | ✅ live + fallback |
-| on-target | `heuristic_gc` | **`rule_set_1`** (Doench 2014) | ✅ wired |
-| off-target | `mock_seed` | **`cas_offinder_cfd`** (CFD; scan needs a genome) | ✅ wired |
-| repair outcome | `mock_indel` | **`indelphi`** (Shen 2018) | ✅ wired |
-| base-edit outcome | `window_heuristic` | **`behive`** (Arbab 2020) | ✅ wired |
-| prime-edit outcome | `pe_heuristic` | **`pridict`** (Mathis 2023) | ✅ wired |
-| structure / folding | `esmfold` (real, no key) | **AlphaFold3 / Boltz** (`HELIX_FOLDING_BIN`) | ✅ ESMFold live |
+| sequence | `inline` | **`ensembl`**, **`ncbi`**, **`fallback`** (Ensembl→NCBI) | live + fallback |
+| on-target | `heuristic_gc` | **`rule_set_1`** (Doench 2014) | wired |
+| off-target | `mock_seed` | **`cas_offinder_cfd`** (CFD; scan needs a genome) | wired |
+| repair outcome | `mock_indel` | **`indelphi`** (Shen 2018) | wired |
+| base-edit outcome | `window_heuristic` | **`behive`** (Arbab 2020) | wired |
+| prime-edit outcome | `pe_heuristic` | **`pridict`** (Mathis 2023) | wired |
+| structure / folding | `esmfold` (real, no key) | **AlphaFold3 / Boltz** (`HELIX_FOLDING_BIN`) | ESMFold live |
 
 The verified-real cores (Doench 2014, Doench 2016 CFD) are pure and always on; heavy
 models sit behind injectable boundaries — configured in when a genome/tool is present,

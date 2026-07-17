@@ -15,7 +15,7 @@ export function DonorCard({ d }: { d: HdrDonor }) {
         <span className="arm">{d.right_arm}</span>
       </div>
       <div className={"note " + (d.pam_disrupted ? "ok" : "")}>
-        {d.pam_disrupted ? "✓ " : "⚠ "}
+        {d.pam_disrupted ? "✓ " : ""}
         {d.recut_note}
       </div>
     </div>

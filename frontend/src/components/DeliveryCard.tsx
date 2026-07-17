@@ -23,7 +23,7 @@ export function DeliveryCard({ d }: { d: DeliveryRecommendation }) {
               <span className="num">{o.score.toFixed(2)}</span>
             </div>
             {o.warnings.map((w, i) => (
-              <div key={i} className="drow-warn">⚠ {w}</div>
+              <div key={i} className="drow-warn">{w}</div>
             ))}
           </div>
         ))}
