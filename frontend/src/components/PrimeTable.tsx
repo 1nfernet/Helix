@@ -1,13 +1,14 @@
 import type { PrimeEditCandidate } from "../types";
 import { Metric, PassMark } from "./Badge";
 import { ConsequenceBadge } from "./GuideTable";
+import { TableScroll } from "./TableScroll";
 
 const MAX_ROWS = 12;
 
 export function PrimeTable({ pegs }: { pegs: PrimeEditCandidate[] }) {
   const rows = [...pegs].sort((a, b) => (a.rank ?? 99) - (b.rank ?? 99)).slice(0, MAX_ROWS);
   return (
-    <div className="table-scroll">
+    <TableScroll>
       <table className="data">
         <thead>
           <tr>
@@ -42,6 +43,6 @@ export function PrimeTable({ pegs }: { pegs: PrimeEditCandidate[] }) {
           ))}
         </tbody>
       </table>
-    </div>
+    </TableScroll>
   );
 }

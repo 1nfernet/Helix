@@ -1,8 +1,9 @@
-import { lazy, Suspense, useMemo, useState } from "react";
+import { lazy, Suspense, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { ApiError, CompileResult, ResolvedDesign } from "../types";
 import type { PickMods } from "./DnaHelix";
 import { BASE_HEX, BASES } from "../palette";
 import { Badge } from "./Badge";
+import { Segmented } from "./Segmented";
 import { AnalyzeCard } from "./AnalyzeCard";
 import { DeletionCard } from "./DeletionCard";
 import { DeliveryCard } from "./DeliveryCard";
@@ -143,6 +144,23 @@ function DesignView({
   ];
   const activeTab = tabs.some((t) => t.id === tab) ? tab : "guides";
 
+  // Slide the accent underline to the active tab instead of the border-color
+  // popping between them — the tab equivalent of the segmented-control thumb.
+  const rtabsRef = useRef<HTMLDivElement>(null);
+  const [underline, setUnderline] = useState<{ x: number; w: number } | null>(null);
+  useLayoutEffect(() => {
+    const root = rtabsRef.current;
+    if (!root) return;
+    const measure = () => {
+      const on = root.querySelector<HTMLButtonElement>('button[aria-selected="true"]');
+      setUnderline(on ? { x: on.offsetLeft, w: on.offsetWidth } : null);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(root);
+    return () => ro.disconnect();
+  }, [activeTab, tabs.length]);
+
   return (
     <>
       <Summary d={d} />
@@ -163,7 +181,14 @@ function DesignView({
 
       {d.safety.allowed && (
         <>
-          <div className="rtabs" role="tablist" aria-label="Design sections">
+          <div className="rtabs" role="tablist" aria-label="Design sections" ref={rtabsRef}>
+            {underline && (
+              <span
+                className="rtab-underline"
+                aria-hidden="true"
+                style={{ transform: `translateX(${underline.x}px)`, width: underline.w }}
+              />
+            )}
             {tabs.map((t, i) => (
               <button
                 key={t.id}
@@ -210,19 +235,17 @@ function DesignView({
                 {/* A .seg is a set of pressed toggles, not a tablist: these swap how
                     the same guides are drawn, they don't move you to another section.
                     That split (.rtabs = tabs, .seg = toggles) holds app-wide. */}
-                <div className="seg small" role="group" aria-label="Guide view">
-                  <button aria-pressed={view === "table"} className={view === "table" ? "active" : ""} onClick={() => setView("table")}>
-                    Table
-                  </button>
-                  {hasHelix && (
-                    <button aria-pressed={view === "helix"} className={view === "helix" ? "active" : ""} onClick={() => setView("helix")}>
-                      Helix
-                    </button>
-                  )}
-                  <button aria-pressed={view === "complex"} className={view === "complex" ? "active" : ""} onClick={() => setView("complex")}>
-                    Complex
-                  </button>
-                </div>
+                <Segmented
+                  ariaLabel="Guide view"
+                  size="small"
+                  value={view}
+                  onChange={setView}
+                  options={[
+                    { value: "table", label: "Table" },
+                    { value: "helix", label: "Helix", hidden: !hasHelix },
+                    { value: "complex", label: "Complex" },
+                  ]}
+                />
               </div>
 
               {view === "helix" && hasHelix ? (
@@ -378,7 +401,12 @@ export function ResultsPanel({
             <pre>{error.message}</pre>
           </div>
         ) : result ? (
-          <DesignView result={result} view={view} setView={setView} tab={tab} setTab={setTab} onPickBase={onPickBase} />
+          // Wrapper carries the reveal: on each compile the panel passes through the
+          // loading state, so DesignView unmounts and remounts here, replaying the
+          // gentle fade-in as quiet confirmation the run finished.
+          <div className="design-reveal">
+            <DesignView result={result} view={view} setView={setView} tab={tab} setTab={setTab} onPickBase={onPickBase} />
+          </div>
         ) : (
           <DesignEmpty />
         )}

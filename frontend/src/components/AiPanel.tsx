@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { author, critique } from "../api";
+import { Segmented } from "./Segmented";
 import type { CritiqueResult, Format } from "../types";
 
 const MODELS = [
@@ -79,18 +80,13 @@ export function AiPanel({
       <div className="ai-head">
         <span className="section-label">AI assist</span>
         {demo && <span className="ai-demo-tag" title="No ANTHROPIC_API_KEY set — replies are canned, not from a model">demo</span>}
-        <div className="seg small" role="group" aria-label="Model">
-          {MODELS.map((m) => (
-            <button
-              key={m.id}
-              aria-pressed={model === m.id}
-              className={model === m.id ? "active" : ""}
-              onClick={() => setModel(m.id)}
-            >
-              {m.label}
-            </button>
-          ))}
-        </div>
+        <Segmented
+          ariaLabel="Model"
+          size="small"
+          value={model}
+          onChange={setModel}
+          options={MODELS.map((m) => ({ value: m.id, label: m.label }))}
+        />
       </div>
 
       <div className="ai-row">

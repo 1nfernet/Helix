@@ -1,3 +1,4 @@
+import { TableScroll } from "./TableScroll";
 import type { BatchItemResult } from "../types";
 
 interface Props {
@@ -28,7 +29,7 @@ export function BatchResults({ results, loading, onOpen }: Props) {
             Select specs on the left and press Compile.
           </div>
         ) : (
-          <div className="table-scroll">
+          <TableScroll>
             <table className="data">
               <thead>
                 <tr>
@@ -70,7 +71,7 @@ export function BatchResults({ results, loading, onOpen }: Props) {
                 )}
               </tbody>
             </table>
-          </div>
+          </TableScroll>
         )}
       </div>
     </section>

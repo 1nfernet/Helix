@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import type { GuideCandidate, ProteinConsequence } from "../types";
 import { Metric, PassMark } from "./Badge";
+import { TableScroll } from "./TableScroll";
 
 const MAX_ROWS = 15;
 
@@ -191,7 +192,7 @@ export function GuideTable({
             : "frameshift";
 
   return (
-    <div className="table-scroll">
+    <TableScroll>
       <table className="data">
         <thead>
           <tr>
@@ -253,6 +254,6 @@ export function GuideTable({
           })}
         </tbody>
       </table>
-    </div>
+    </TableScroll>
   );
 }

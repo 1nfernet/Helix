@@ -1,4 +1,5 @@
 import type { Example, Format } from "../types";
+import { Segmented } from "./Segmented";
 
 interface Props {
   examples: Example[];
@@ -24,14 +25,15 @@ export function LibraryEditor(props: Props) {
       <div className="panel-head">
         <h3>Library</h3>
         <span className="grow" />
-        <div className="seg" role="group" aria-label="Spec format">
-          <button aria-pressed={format === "helix"} className={format === "helix" ? "active" : ""} onClick={() => onFormatChange("helix")}>
-            Helix
-          </button>
-          <button aria-pressed={format === "yaml"} className={format === "yaml" ? "active" : ""} onClick={() => onFormatChange("yaml")}>
-            YAML
-          </button>
-        </div>
+        <Segmented
+          ariaLabel="Spec format"
+          value={format}
+          onChange={onFormatChange}
+          options={[
+            { value: "helix", label: "Helix" },
+            { value: "yaml", label: "YAML" },
+          ]}
+        />
       </div>
 
       <div className="panel-body">

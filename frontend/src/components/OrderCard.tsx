@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { exportOligos } from "../api";
+import { TableScroll } from "./TableScroll";
 import type { ExportResult, ResolvedDesign } from "../types";
 
 export function OrderCard({ design }: { design: ResolvedDesign }) {
@@ -29,7 +30,7 @@ export function OrderCard({ design }: { design: ResolvedDesign }) {
           ~${data.cost.total_usd} · {data.cost.total_bases} nt · {data.cost.item_count} oligos
         </span>
       </div>
-      <div className="table-scroll">
+      <TableScroll>
         <table className="data order-table">
           <thead>
             <tr>
@@ -50,7 +51,7 @@ export function OrderCard({ design }: { design: ResolvedDesign }) {
             ))}
           </tbody>
         </table>
-      </div>
+      </TableScroll>
       <button className="btn" onClick={download}>
         Download CSV
       </button>

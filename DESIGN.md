@@ -34,13 +34,13 @@ typography:
     fontSize: "23px"
     fontWeight: 600
     lineHeight: 1.2
-    letterSpacing: "-0.01em"
+    letterSpacing: "-0.02em"
   headline:
     fontFamily: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
     fontSize: "20px"
     fontWeight: 600
     lineHeight: 1.2
-    letterSpacing: "-0.01em"
+    letterSpacing: "-0.015em"
   title:
     fontFamily: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
     fontSize: "15px"
@@ -240,6 +240,7 @@ Four steps, no others: **xs 4px** (inline sequence highlights, nested seg thumbs
 ### Segmented control (`.seg`) vs. tabs (`.rtabs`)
 - **Style:** Cool Inset track, 3px inner padding; the active segment is a Surface White thumb carrying the Ambient Soft shadow. Inner radius is `rounded.xs` — the outer 7px minus the 3px track padding, which is what keeps a nested corner concentric rather than merely "also rounded".
 - **Rule — the two are not interchangeable.** A `.seg` is a set of **pressed toggles** (`role="group"` + `aria-pressed`): same content, different rendering (Table · 3D helix · Cas9 complex; Helix · YAML; Haiku · Sonnet). `.rtabs` are **real tabs** (`role="tablist"`/`tab`/`tabpanel`, roving `tabIndex`, arrow-key navigation): distinct workflow sections with distinct content (Guides · Delivery · Order · Analyze). Picking the wrong one lies to assistive tech about what the control does.
+- **Motion — the selection travels, it doesn't teleport.** The seg thumb (one shared `Segmented` component) and the tab's accent underline both *slide* to the newly-active option over ~240ms easeOutQuart — Apple's core selection feel, and the only "travel" motion in the app. Both animate `transform` only (no layout property), measure the live active element so they adapt to label width, and collapse to an instant move under reduced motion.
 
 ### Badges & status chips
 - **Style:** Pill (999px), soft-wash background + matching signal text + `-line` border, 12px weight 550, optional 6px leading dot. Four roles: `ok` (green), `warn` (amber), `danger` (red), `neutral` (inset/secondary).
@@ -268,6 +269,12 @@ Four steps, no others: **xs 4px** (inline sequence highlights, nested seg thumbs
 
 ### Data tables (`table.data`)
 - **Style:** Full-width, uppercase tracked `label` headers on a Hairline underline, 13px body rows divided by Hairlines, `tabular-nums` for all numeric columns. Selected/open rows tint Cool Inset. Rows expand in place into a drill-down (sequence with highlighted PAM, off-target table, pass/fail checks, variant flags).
+- **Overflow — scroll edge, not clip.** A ranked guide table is eight dense columns and will not fit beside the spec editor on a laptop, so it scrolls horizontally inside its panel (`TableScroll`). A soft fade appears at whichever edge has more table (Apple §12) — gated on real scroll position, so a table that fits keeps its last column perfectly crisp. The page itself never scrolls sideways.
+
+### Reveal & press (the rest of the motion budget)
+- **Compile reveal:** when a design first lands it fades up 4px over ~220ms — a quiet "the run finished", not choreography. Its resting state is fully visible, so reduced motion (or a headless render) simply shows it instantly; content is never gated on the transition.
+- **Press:** the primary button scales to 0.975 on `:active` — feedback on the press itself, not the release (Apple §1).
+- Everything else is a 120–160ms hover/focus/selection tint. Nothing decorative, and every animation has a `prefers-reduced-motion` collapse.
 
 ### Strength meter (`.meter`)
 - **Style:** A 6px rounded track (Hairline) with an Indigo fill sized to the score — the compact inline visualization for efficiency / off-target / delivery-fit scores. Paired with a `tabular-nums` value.

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import type { ResolvedDesign, RunSummary } from "../types";
 import { CompareGuides } from "./CompareGuides";
+import { Segmented } from "./Segmented";
 
 type Slot = "a" | "b";
 
@@ -130,21 +131,16 @@ export function ComparePanel({
 
       {a && b && sa && sb ? (
         <>
-          <div className="cmp-toggle" role="group" aria-label="Compare view">
-            <button
-              aria-pressed={view === "summary"}
-              className={view === "summary" ? "active" : ""}
-              onClick={() => setView("summary")}
-            >
-              Summary
-            </button>
-            <button
-              aria-pressed={view === "guides"}
-              className={view === "guides" ? "active" : ""}
-              onClick={() => setView("guides")}
-            >
-              Guides
-            </button>
+          <div className="cmp-view">
+            <Segmented
+              ariaLabel="Compare view"
+              value={view}
+              onChange={setView}
+              options={[
+                { value: "summary", label: "Summary" },
+                { value: "guides", label: "Guides" },
+              ]}
+            />
           </div>
           {view === "summary" ? (
             <table className="cmp-table">

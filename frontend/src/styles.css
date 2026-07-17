@@ -147,7 +147,9 @@ body {
 .history-page { display: flex; flex-direction: column; }
 @media (max-width: 980px) { .workspace > .grid { flex: 0 0 auto; } }
 .topbar { margin-bottom: 22px; }
-.topbar h2 { font-family: var(--display); font-size: 23px; font-weight: 600; letter-spacing: -0.01em; margin: 0; color: var(--text); }
+/* Tracking is size-specific (Apple §15): the larger the type, the tighter it
+   wants to be. The 23px page title takes -0.02em; body stays near 0. */
+.topbar h2 { font-family: var(--display); font-size: 23px; font-weight: 600; letter-spacing: -0.02em; margin: 0; color: var(--text); }
 .topbar p { color: var(--text-secondary); font-size: 13px; margin: 4px 0 0; }
 
 /* --- layout --- */
@@ -253,12 +255,27 @@ details.prov summary:focus-visible,
 input[type="text"]:focus, input:not([type]):focus {
   outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft);
 }
-.seg { display: inline-flex; padding: 3px; gap: 3px; }
+.seg { position: relative; display: inline-flex; padding: 3px; gap: 3px; }
 .seg button {
+  position: relative; z-index: 1;
   border: none; background: transparent; color: var(--text-secondary);
   font: inherit; font-size: 12.5px; padding: 4px 12px; border-radius: var(--radius-xs); cursor: pointer;
 }
-.seg button.active { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+.seg button.active { color: var(--text); }
+/* The single thumb the active state rides on. It slides between options (measured
+   in Segmented.tsx) rather than the background hard-cutting from button to button —
+   Apple's "selection moves, it doesn't teleport". easeOutQuart over 240ms: a smooth
+   decelerate with visible travel and no overshoot (DESIGN.md bans bounce). The global
+   reduced-motion rule collapses the transition to an instant move. */
+.seg-thumb {
+  position: absolute; top: 3px; bottom: 3px; left: 0;
+  background: var(--surface); border-radius: var(--radius-xs); box-shadow: var(--shadow);
+  z-index: 0; pointer-events: none;
+  /* Only the compositor-friendly transform animates; width updates instantly.
+     Segments are near-equal width, so the snap is imperceptible under the slide —
+     and it keeps a layout property off the animation path. */
+  transition: transform 0.24s cubic-bezier(0.25, 1, 0.5, 1);
+}
 
 /* --- syntax-highlighting code editor (transparent textarea over a highlight layer) --- */
 .editor-wrap { padding: 14px 18px 0; }
@@ -387,7 +404,7 @@ input[type="text"]:focus, input:not([type]):focus {
 .de-txt span { display: block; font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 2px; }
 
 .summary { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-bottom: 4px; }
-.summary .title { font-family: var(--display); font-size: 20px; font-weight: 600; margin-right: 4px; }
+.summary .title { font-family: var(--display); font-size: 20px; font-weight: 600; letter-spacing: -0.015em; margin-right: 4px; }
 .meta-row { color: var(--text-secondary); font-size: 13px; margin: 8px 0 0; }
 .meta-row code { font-family: var(--mono); font-size: 12px; color: var(--text); }
 
@@ -398,13 +415,22 @@ input[type="text"]:focus, input:not([type]):focus {
 .stat .sl { font-size: 12px; color: var(--text-muted); }
 
 /* result workflow tabs */
-.rtabs { display: flex; gap: 2px; border-bottom: 1px solid var(--border); margin: 20px 0 4px; }
+.rtabs { position: relative; display: flex; gap: 2px; border-bottom: 1px solid var(--border); margin: 20px 0 4px; }
 .rtabs button {
   border: none; background: transparent; font: inherit; font-size: 13px; color: var(--text-secondary);
-  padding: 8px 15px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px;
+  padding: 8px 15px; cursor: pointer;
 }
 .rtabs button:hover { color: var(--text); }
-.rtabs button.active { color: var(--accent-hover); border-bottom-color: var(--accent); font-weight: 500; }
+.rtabs button.active { color: var(--accent-hover); font-weight: 500; }
+/* The accent underline slides to the active tab (measured in ResultsPanel) rather
+   than the border-color jumping between buttons — same vocabulary as the seg thumb.
+   Transform-only so no layout property animates; tabs are similar width, so the
+   width update reads as instant under the slide. */
+.rtab-underline {
+  position: absolute; bottom: -1px; left: 0; height: 2px;
+  background: var(--accent); border-radius: var(--radius-xs); pointer-events: none;
+  transition: transform 0.24s cubic-bezier(0.25, 1, 0.5, 1);
+}
 .rtabs + .results-head { margin-top: 14px; }
 
 .badge {
@@ -521,9 +547,9 @@ input[type="text"]:focus, input:not([type]):focus {
 .cmp-table tr.differ { background: var(--accent-soft); }
 .cmp-table tr.differ .cmp-a, .cmp-table tr.differ .cmp-b { font-weight: 500; color: var(--accent-hover); }
 
-.cmp-toggle { display: inline-flex; gap: 2px; padding: 2px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 12px; }
-.cmp-toggle button { font: inherit; font-size: 12px; font-weight: 500; padding: 5px 14px; border: none; background: transparent; color: var(--text-secondary); border-radius: var(--radius-xs); cursor: pointer; }
-.cmp-toggle button.active { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+/* Compare's Summary/Guides toggle is a standard Segmented now (one toggle
+   vocabulary app-wide); the wrapper just carries the space beneath it. */
+.cmp-view { margin-bottom: 12px; }
 
 .cmp-guides { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
 .cmp-guides-col { min-width: 0; overflow-x: auto; }
@@ -673,6 +699,19 @@ input[type="text"]:focus, input:not([type]):focus {
    the scientist the side-by-side comparison the table exists for — the table
    scrolls sideways inside its panel. The page itself never scrolls sideways. */
 .table-scroll { overflow-x: auto; margin-inline: -2px; padding-inline: 2px; }
+/* Edge fades (TableScroll toggles data-l/data-r by scroll position) so an
+   overflowing table reads as "scroll for more", not a column clipped mid-word.
+   A table that fits shows neither fade — its last column stays crisp. */
+.table-scroll-wrap { position: relative; }
+.table-scroll-wrap::before,
+.table-scroll-wrap::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 28px; z-index: 2;
+  pointer-events: none; opacity: 0; transition: opacity 0.15s ease;
+}
+.table-scroll-wrap::before { left: 0; background: linear-gradient(to right, var(--surface), transparent); }
+.table-scroll-wrap::after { right: 0; background: linear-gradient(to left, var(--surface), transparent); }
+.table-scroll-wrap[data-l]::before { opacity: 1; }
+.table-scroll-wrap[data-r]::after { opacity: 1; }
 table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
 /* Headers wrap ("MAX / CFD"); the data below them must not. Pinning headers to a
    single line inflated the table's min-content past the panel and pushed the
@@ -693,7 +732,7 @@ table.data tr.selected { background: var(--surface-2); }
 .num { font-variant-numeric: tabular-nums; }
 
 /* strength meter for scores */
-.meter { position: relative; height: 6px; border-radius: 999px; background: var(--border); overflow: hidden; min-width: 54px; }
+.meter { position: relative; height: 6px; border-radius: 999px; background: var(--border); overflow: hidden; min-width: 46px; }
 .meter > span { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 999px; }
 .cell-metric { display: flex; align-items: center; gap: 8px; }
 .cell-metric .val { font-variant-numeric: tabular-nums; min-width: 30px; }
@@ -764,11 +803,11 @@ textarea.code.genes { min-height: 78px; margin-top: 0; }
 
 /* --- motion ---
    State transitions only (hover / selection / focus), 120–160ms — enough to feel
-   responsive without making anyone wait for choreography. Nothing decorative. */
+   responsive without making anyone wait for choreography. Nothing decorative. The
+   sliding seg thumb and tab underline (their own rules) are the only travel. */
 .nav button,
 .seg button,
 .rtabs button,
-.cmp-toggle button,
 .run-item,
 .batch-item,
 .guide-row,
@@ -781,8 +820,19 @@ textarea.code.genes { min-height: 78px; margin-top: 0; }
   transition: background-color 0.15s ease, color 0.15s ease,
     border-color 0.15s ease, box-shadow 0.15s ease;
 }
-.btn { transition: background-color 0.12s ease, box-shadow 0.15s ease; }
-.btn:active:not(:disabled) { transform: translateY(0.5px); }
+/* The primary action responds to the press itself, not the release (Apple §1):
+   a small scale down under the finger reads as physically depressible. */
+.btn { transition: background-color 0.12s ease, box-shadow 0.15s ease, transform 0.1s ease; }
+.btn:active:not(:disabled) { transform: scale(0.975); }
+
+/* The compiled design fades up as it arrives — a quiet reveal, not choreography.
+   Its resting state is fully visible, so if the animation never runs (reduced
+   motion collapses it to instant) the content is never gated on the transition. */
+@keyframes design-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.design-reveal { animation: design-in 0.22s cubic-bezier(0.25, 1, 0.5, 1); }
 
 /* Reduced motion is non-negotiable for this app. Collapse every animation and
    transition to an instant change; the "Compiling…" label carries the loading
