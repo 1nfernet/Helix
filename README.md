@@ -11,6 +11,7 @@
 [![Python](https://img.shields.io/badge/python-3.9%2B-5b53e0)](https://www.python.org/)
 [![Tests](https://img.shields.io/badge/tests-231%20passing-0b7a5d)](https://github.com/coindef/Helix/tree/main/tests)
 [![MCP](https://img.shields.io/badge/MCP-server-5b53e0)](#mcp-server)
+[![Accessibility](https://img.shields.io/badge/a11y-WCAG_2.1_AA-0b7a5d)](#web-ui)
 
 [Quickstart](#quickstart) · [Highlights](#highlights) · [The language](#the-language) · [Architecture](#architecture) · [MCP server](#mcp-server) · [Deep dive](https://github.com/coindef/Helix/blob/main/ARCHITECTURE.md)
 
@@ -20,7 +21,8 @@ Most agentic gene-editing tools are chat interfaces that produce a one-off answe
 **Helix treats an editing experiment as source code:** you write a small declarative
 spec (the *intent*), and a deterministic **compiler** — assisted by narrowly-scoped
 LLM agents — turns it into a fully resolved, provenance-stamped **design** you can
-diff, version, review, and re-run.
+diff, version, review, and re-run. The bench scientist reading a protocol and the
+computational biologist tuning constraints work from the same reviewable artifact.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/coindef/Helix/main/docs/hero.png" width="900"
@@ -39,7 +41,7 @@ diff, version, review, and re-run.
 - 🧪 **Variant-aware guides** — flags common population SNPs in the seed/PAM (a SNP there abolishes binding in carriers).
 - 🔌 **Injectable backends** — swap a heuristic for a real tool (Cas-OFFinder, inDelphi, BE-Hive, PRIDICT, Ensembl/NCBI, ESMFold) by editing the spec, *not* the code.
 - 🤖 **MCP server + LLM agents** — any agent can drive the compiler through the spec → compile boundary.
-- 🖥️ **Web UI** — syntax-highlighting editor, interactive 3D helix, order-ready oligos, and results analysis — keyboard-navigable throughout, to **WCAG 2.1 AA**.
+- 🖥️ **Web UI** — syntax-highlighting editor, interactive 3D helix, order-ready oligos, and results analysis; keyboard-navigable throughout.
 - ♻️ **Reproducible & auditable** — every design is provenance-stamped; diff and version it in git.
 
 ## Quickstart
